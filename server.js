@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 4090
 
 // middleswares
 const logger = require('./middlewares/logger')
-// const sessions = require('./middlewares/sessions')
+const sessions = require('./middlewares/sessions')
 
 // controllers
 
@@ -32,11 +32,11 @@ app.use(logger)
 //     V
 // middleware to parse JSON body in a POST, PUT or DELETE request
 // and it assigns the data to req.body
-// app.use(express.json())
+app.use(express.json())
 //     |
 //     V
 // enable sessions
-// app.use(sessions)
+app.use(sessions)
 //     |
 //     V
 // middleware for controllers with routes
@@ -46,5 +46,3 @@ app.use(logger)
 //     |
 //     V
 // send response back to user
-
-/////test angela
