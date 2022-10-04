@@ -9,3 +9,14 @@ CREATE TABLE users(
     email TEXT,
     password_digest TEXT
 );
+
+CREATE TABLE trackers(
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER,
+    start_date TIMESTAMP,
+    end_date TIMESTAMP,
+    period INTEGER,
+    name TEXT,
+    description TEXT,
+    category TEXT
+);
