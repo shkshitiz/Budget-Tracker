@@ -1,23 +1,40 @@
-function renderEditTransaction() {
+function renderEditTransaction(transaction) {
   document.querySelector('#page').innerHTML = `
   <main>
   <form onSubmit="editTransaction(event)">
     <h2>
       Edit Transaction
     </h2>
+    <input type="hidden" value="${transaction.id}">
     <section>
-      <label for="">Name: </label>
-      <input type="text" name="name">
+      <label for="name">Name: </label>
+      <input type="text" name="name" value="${transaction.name}">
     </section>
     <section>
-      <label for="">Amount: </label>
-      <input type="text" name="email">
+      <label for="amount">Amount: </label>
+      <input type="text" name="amount" value="${transaction.amount}">
     </section>
     <section>
-      <label for="">Description: </label>
-      <input type="text" name="description">
+      <label for="category">Category: </label>
+      <input type="text" name="category" value="${transaction.category}">
     </section>
-    <button>Sign Up</button>
+    <section>
+      <label for="description">Description: </label>
+      <input type="text" name="description" value="${transaction.description}">
+    </section>
+    <section>
+      <label for="period">Period: </label>
+      <input type="checkbox" name="period" value="${transaction.period}">
+    </section>
+    <section>
+      <label for="startDate">Start Date: </label>
+      <input type="date" name="startDate" value="${transaction.startDate}">
+    </section>
+    <section>
+      <label for="endDate">End Date: </label>
+      <input type="date" name="endDate" value="${transaction.endDate}">
+    </section>
+    <button>Save</button>
     </form>
    </main>
   `
@@ -34,8 +51,7 @@ function editTransaction(event) {
     body: JSON.stringify(data)
   })
     .then(res => res.json())
-    .then(userName => {
-      state.loggedInUserName = userName
+    .then(transaction => {
       renderTransactionHistory()
     })
 }
