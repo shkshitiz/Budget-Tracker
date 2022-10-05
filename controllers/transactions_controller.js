@@ -8,8 +8,8 @@ const Transaction = require('../models/transaction')
 // read
 router.get('/', (req, res) => {
   Transaction
-  .findAll()
-  .then(transactions => res.json(transactions))
+    .findAll()
+    .then(transactions => res.json(transactions))
 })
 
 // create
@@ -40,9 +40,6 @@ router.put('/:id', (req, res) => {
     .update(name, category, amount, description, period, starDate, endDate)
 
 })
-
-
-// })
 
 // delete
 router.delete('/:id', (req, res) => {

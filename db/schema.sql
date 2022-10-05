@@ -20,8 +20,8 @@ ALTER SEQUENCE users_id_seq RESTART WITH 1;
 
 
 
--- Budget Tracker table
-CREATE TABLE trackers(
+-- Budget Transactions table
+CREATE TABLE transactions(
     id SERIAL PRIMARY KEY,
     user_id INTEGER,
     start_date TIMESTAMP,
@@ -33,9 +33,9 @@ CREATE TABLE trackers(
     category TEXT
 );
 
--- Reset Trackers table
-TRUNCATE TABLE trackers;
-ALTER SEQUENCE trackers_id_seq RESTART WITH 1;
+-- Reset Transactions table
+TRUNCATE TABLE transactions;
+ALTER SEQUENCE transactions_id_seq RESTART WITH 1;
 
 
 
@@ -43,7 +43,7 @@ ALTER SEQUENCE trackers_id_seq RESTART WITH 1;
 -- Seeding example content
 -- Converting "real time" to Timestamp Time/UNIX time
 -- now() also is one way to get current time
-INSERT INTO trackers (user_id, start_date, end_date, period, amount, name, description, category)
+INSERT INTO transactions (user_id, start_date, end_date, period, amount, name, description, category)
 VALUES (
     1,
     TO_TIMESTAMP(1664876340),
@@ -55,7 +55,7 @@ VALUES (
     'Miscellaneous'
 );
 
-INSERT INTO trackers (user_id, start_date, end_date, period, amount, name, description, category)
+INSERT INTO transactions (user_id, start_date, end_date, period, amount, name, description, category)
 VALUES (
     1,
     TO_TIMESTAMP(1675417140),
@@ -69,7 +69,7 @@ VALUES (
 
 -- "-1" for the period means it is monthly at the same date every month, from the start_date
 -- extension to use it in "period" in the future as extension, currently it will set it as 28 days for "monthly"
-INSERT INTO trackers (user_id, start_date, end_date, period, amount, name, description, category)
+INSERT INTO transactions (user_id, start_date, end_date, period, amount, name, description, category)
 VALUES (
     1,
     TO_TIMESTAMP(1664621850),
@@ -81,7 +81,7 @@ VALUES (
     'Entertainment'
 );
 
-INSERT INTO trackers (user_id, start_date, end_date, period, amount, name, description, category)
+INSERT INTO transactions (user_id, start_date, end_date, period, amount, name, description, category)
 VALUES (
     1,
     TO_TIMESTAMP(1664621850),

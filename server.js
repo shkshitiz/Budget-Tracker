@@ -7,9 +7,9 @@ const logger = require('./middlewares/logger')
 const sessions = require('./middlewares/sessions')
 
 // controllers
-
-// const usersController = require('./controllers/users_controller')
-// const sessionsController = require('./controllers/sessions_controller')
+const transactionsController = require('./controllers/transactions_controller')
+const usersController = require('./controllers/users_controller')
+const sessionsController = require('./controllers/sessions_controller')
 
 // start the web server
 app.listen(PORT,
@@ -27,7 +27,7 @@ app.use(logger)
 //     |
 //     V
 // middleware to send backl our SPA (Single-Page Application)
-// app.use(express.static('client'))
+app.use(express.static('client'))
 //     |
 //     V
 // middleware to parse JSON body in a POST, PUT or DELETE request
@@ -40,9 +40,9 @@ app.use(sessions)
 //     |
 //     V
 // middleware for controllers with routes
-
-// app.use('/api/users', usersController)
-// app.use('/api/sessions', sessionsController)
+app.use('/api/transactions', transactionsController)
+app.use('/api/users', usersController)
+app.use('/api/sessions', sessionsController)
 //     |
 //     V
 // send response back to user
