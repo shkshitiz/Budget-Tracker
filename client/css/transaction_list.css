@@ -45,11 +45,6 @@
 }
 
 .tracked-item-divider {
-  /* width: 10%;
-  align-self: center;
-  text-align: center;
-  display: block; */
-
   position: relative;
   width: 2px;
   height: inherit;
@@ -82,59 +77,6 @@
 }
 
 
-/* GRID */
-
-.grid-transaction-list {
-  font-size: 0.9em;
-
-  display: grid;
-  grid-template-columns: auto auto minmax(50px, 1fr);
-  gap: 0em 1em;
-}
-
-.grid-transaction-list > div {
-  align-self: center;
-}
-
-.grid-title-date, .grid-title-transaction {
-  font-size: 0.85em;
-}
-
-.grid-title-date {
-  font-weight: 600;
-}
-
-.grid-title-bar {
-  margin: 0.75em 0 1.25em 0;
-  grid-column: auto / span 3;
-  border: 2px solid black;
-}
-
-.grid-title-date {
-  grid-column: auto / span 2;
-}
-
-.grid-row-padding {
-  grid-column: auto / span 3;
-  height: 0.75rem;
-}
-
-/* Transaction Item Styles */
-
-.grid-transaction-item-date {
-  min-width: 50px;
-  text-align: right;
-}
-
-.grid-transaction-item-info {
-  padding: 0.5em 0.8rem;
-  color: aliceblue;
-}
-
-.grid-info-title > * {
-  margin: 0;
-  align-self: center;
-}
 
 /* Transaction Item colours */
 
