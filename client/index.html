@@ -12,11 +12,13 @@
 
     <!-- our functions -->
     <script src="/js/initialize.js"></script>
+    <script defer src="/js/components/transaction_list.js"></script>
 </head>
 <body>
   <h1>Budget Tracker</h1>
   <nav class="header-nav">
     <ul>
+      <li onClick="renderTransactionList()">Show Transactions</li>
       <li onClick="renderSignUp()">Sign Up</li>
       <li onClick="renderLogin()">Login</li>
     </ul>
