@@ -14,63 +14,102 @@
     <!-- our functions -->
     <script src="/js/initialize.js"></script>
     <script defer src="/js/components/transaction_list.js"></script>
+    <script defer src="/js/components/transaction_history.js"></script>
     <script defer src="/js/components/sign_up.js"></script>
-    <script defer src="/js/components/edit_transaction.js"></script>
+    <script defer src="/js/components/transaction_edit.js"></script>
 </head>
 <body>
   <h1>Budget Tracker</h1>
   <nav class="header-nav">
     <ul>
-      <li onClick="renderTransactionList()">Show Transactions</li>
+      <li onClick="renderTransactionHistory()">Transaction History</li>
       <li onClick="renderEditTransaction()">Edit Transaction</li>
       <li onClick="renderSignUp()">Sign Up</li>
       <li onClick="renderLogin()">Login</li>
     </ul>
   </nav>
   <main id="page" class="content">
-  <!-- In progress of converting grid into flex -->
+    <!-- In progress of converting grid into flex -->
+    <h2>flex</h2>
 
-    <section class="transaction-list">
-      <div class="title-date">Date</div>
-      <div class="title-transaction">Transaction</div>
-      <div class="title-bar"></div>
+    <div class="transaction-list">
+      <div class="transaction-list-title">
+        <p class="title-date">DATE</p>
+        <p class="title-transaction">Transaction</p>
+      </div>
+      <div class="transaction-tracking-items">
+        <div class="tracked-item">
+          <div class="tracked-item-date">20 Sep</div>
+          <span class="tracked-item-divider"></span>
+          <div class="tracked-item-info item-style-red">
+            <div class="tracked-item-title">- $300 - Rent</div>
+            <div class="tracked-item-content"></div>
+          </div>
+        </div>
+
+        <div class="tracked-item">
+          <div class="tracked-item-date">10 Sep</div>
+          <span class="tracked-item-divider"></span>
+          <div class="tracked-item-info item-style-brown">
+            <div class="tracked-item-title">- $300 - Food Shopping</div>
+            <div class="tracked-item-content"></div>
+          </div>
+        </div>
+
+        <div class="tracked-item">
+          <div class="tracked-item-date">1 Sep</div>
+          <span class="tracked-item-divider"></span>
+          <div class="tracked-item-info item-style-blue">
+            <div class="tracked-item-title">+ $1200 - Salary</div>
+            <div class="tracked-item-content"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2>grid</h2>
+
+    <section class="grid-transaction-list">
+      <div class="grid-title-date">Date</div>
+      <div class="grid-title-transaction">Transaction</div>
+      <div class="grid-title-bar"></div>
       <!-- <p>${transaction.start_date}</p> -->
       <!-- <p>${amountSign} $${transaction.amount} - ${transaction.name}</p> -->
-      <div class="transaction-item-date">
+      <div class="grid-transaction-item-date">
         <p>20 Sep</p>
       </div>
-      <div class="transaction-item-divider">*</div>
-      <div class="transaction-item-info item-style-red">
-        <div class="info-title">
+      <div class="grid-transaction-item-divider">*</div>
+      <div class="grid-transaction-item-info item-style-red">
+        <div class="grid-info-title">
           <h3>- $300 - Rent</h3>
         </div>
-        <div class="info-content"></div>
+        <div class="grid-info-content"></div>
       </div>
 
-      <div class="row-padding"></div>
+      <div class="grid-row-padding"></div>
 
-      <div class="transaction-item-date">
+      <div class="grid-transaction-item-date">
         <p>10 Sep</p>
       </div>
-      <div class="transaction-item-divider">*</div>
-      <div class="transaction-item-info item-style-brown">
-        <div class="info-title">
+      <div class="grid-transaction-item-divider">*</div>
+      <div class="grid-transaction-item-info item-style-brown">
+        <div class="grid-info-title">
           <h3>- $300 - Food Shopping</h3>
         </div>
-        <div class="info-content"></div>
+        <div class="grid-info-content"></div>
       </div>
 
-      <div class="row-padding"></div>
+      <div class="grid-row-padding"></div>
 
-      <div class="transaction-item-date">
+      <div class="grid-transaction-item-date">
         <p>1 Sep</p>
       </div>
-      <div class="transaction-item-divider">*</div>
-      <div class="transaction-item-info item-style-blue">
-        <div class="info-title">
+      <div class="grid-transaction-item-divider">*</div>
+      <div class="grid-transaction-item-info item-style-blue">
+        <div class="grid-info-title">
           <h3>+ $1200 - Salary</h3>
         </div>
-        <div class="info-content"></div>
+        <div class="grid-info-content"></div>
       </div>
     </section>
   </main>

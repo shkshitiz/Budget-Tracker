@@ -4,8 +4,10 @@
 }
 
 body {
+    background-color: rgb(216, 235, 242);
+    color: #222;
     margin: 0 auto;
-    width: 85vw;
+    width: 90vw;
 
     font-family: Arial, Helvetica, sans-serif;
 }
