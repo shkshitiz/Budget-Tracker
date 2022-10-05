@@ -1,0 +1,10 @@
+
+.transaction-list {
+    display: grid;
+    grid-template-columns: auto auto minmax(0px, 1fr);
+    gap: 0rem 1rem;
+}
+
+.description-date {
+    grid-column: auto / span 2;
+}
