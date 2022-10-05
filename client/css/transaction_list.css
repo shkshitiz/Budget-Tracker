@@ -1,8 +1,10 @@
 
 .transaction-list {
+    font-size: 0.9em;
+
     display: grid;
     grid-template-columns: auto auto minmax(50px, 1fr);
-    gap: 0rem 1rem;
+    gap: 0em 1em;
 }
 
 .transaction-list > div {
@@ -10,7 +12,17 @@
 }
 
 .title-date, .title-transaction {
-    margin-bottom: 0.5rem;
+    font-size: 0.85em;
+}
+
+.title-date {
+    font-weight: 600;
+}
+
+.title-bar {
+    margin: 0.75em 0 1.25em 0;
+    grid-column: auto / span 3;
+    border: 2px solid black;
 }
 
 .title-date {
@@ -30,7 +42,7 @@
 }
 
 .transaction-item-info {
-    padding: 0.8rem 1rem;
+    padding: 0.5em 0.8rem;
     color: aliceblue;
 }
 
