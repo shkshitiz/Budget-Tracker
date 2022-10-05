@@ -9,6 +9,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/transaction_list.css">
 
     <!-- our functions -->
     <script src="/js/initialize.js"></script>
@@ -23,6 +24,41 @@
       <li onClick="renderLogin()">Login</li>
     </ul>
   </nav>
-  <main id="page" class="content"></main>
+  <main id="page" class="content">
+    <section class="transaction-list">
+      <section class="transaction-list-description">
+        <p id="description-date">Date</p>
+        <p id="description-transaction">Transaction</p>
+      </section>
+      <section class="transaction-list-content">
+        <div class="transaction-items">
+          <!-- <p>${transaction.start_date}</p> -->
+          <!-- <p>${amountSign} $${transaction.amount} - ${transaction.name}</p> -->
+          <div class="item-date">
+            <p>20 Sep</p>
+          </div>
+          <div class="item-divider"></div>
+          <div class="item-header">
+            <p>- $300 - Rent</p>
+          </div>
+  
+          <div class="item-date">
+            <p>10 Sep</p>
+          </div>
+          <div class="item-divider"></div>
+          <div class="item-header">
+            <p>- $300 - Food Shopping</p>
+          </div>
+  
+          <div class="item-date">
+            <p>1 Sep</p>
+          </div>
+          <div class="item-header">
+            <p>+ $1200 - Salary</p>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
 </body>
 </html>
