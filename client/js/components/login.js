@@ -36,8 +36,9 @@ function login(event) {
         renderError(res.error)
       } else {
         const username = res
-        state.loggedInUserName = username
+        // state.loggedInUserName = username
         renderOverview()
+        console.log('logged in')
       }
     })
 }
