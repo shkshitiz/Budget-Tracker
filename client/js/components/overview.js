@@ -20,10 +20,10 @@ function drawChart() {
   var arrayOfUserExpenses = [];
 
   fetch('/api/transactions')
-    .then(res => res.json())
-    .then(transactions => {
-      console.log(transactions)
-    })
+  .then(res => res.json())
+  .then(transactions => {
+    console.log(transactions)
+  })
   
   var data = google.visualization.arrayToDataTable([
     ['Task', 'Hours per Day'],
