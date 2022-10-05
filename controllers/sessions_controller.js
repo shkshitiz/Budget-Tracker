@@ -32,12 +32,22 @@ router.post('/', (req, res) => {
         res.json(user.email)
       }
       }
-      
     })
 })
 
 // log out
-// delette
-// delete req.session.userId
+router.delete('/', (req, res) => {
+  if (req.session) {
+    req.session.destroy(err => {
+      if (err) {
+        res.status(401).json({ error:'Unable to log out' })
+      } else {
+        res.json({ message: 'Logout successful' })
+      }
+    });
+  } else {
+    res.end()
+  }
+})
 
 module.exports = router
