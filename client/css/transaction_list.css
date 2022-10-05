@@ -1,10 +1,70 @@
 
 .transaction-list {
     display: grid;
-    grid-template-columns: auto auto minmax(0px, 1fr);
+    grid-template-columns: auto auto minmax(50px, 1fr);
     gap: 0rem 1rem;
 }
 
-.description-date {
+.transaction-list > div {
+    align-self: center;
+}
+
+.title-date, .title-transaction {
+    margin-bottom: 0.5rem;
+}
+
+.title-date {
     grid-column: auto / span 2;
+}
+
+.row-padding {
+    grid-column: auto / span 3;
+    height: 0.75rem;
+}
+
+/* Transaction Item Styles */
+
+.transaction-item-date {
+    min-width: 50px;
+    text-align: right;
+}
+
+.transaction-item-info {
+    padding: 0.8rem 1rem;
+    color: aliceblue;
+}
+
+.info-title > * {
+    margin: 0;
+    align-self: center;
+}
+
+/* Transaction Item colours */
+
+.item-style-red {
+    /* Border Hexcode: #AC6363 */
+    border: 2px solid rgb(172, 99, 99);
+    /* Fill Hexcode: #D6B1B1 */
+    background-color: rgb(214, 177, 177);
+}
+
+.item-style-blue {
+    /* Border Hexcode: #2C88D9 */
+    border: 2px solid rgb(44, 136, 217);
+    /* Fill Hexcode: #96C3EC */
+    background-color: rgb(150, 195, 236);
+}
+
+.item-style-brown {
+    /* Border Hexcode: #897A5F */
+    border: 2px solid rgb(137, 122, 95);
+    /* Fill Hexcode: #C4BDAF */
+    background-color: rgb(196, 189, 175);
+}
+
+.item-style-orange {
+    /* Border Hexcode: #E8833A */
+    border: 2px solid rgb(232, 131, 58);
+    /* Fill Hexcode: #F3C19D */
+    background-color: rgb(243, 193, 157);
 }

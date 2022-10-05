@@ -1,6 +1,10 @@
 
-function renderSignUp() {
+function renderTransactionHistory() {
     document.querySelector('#page').innerHTML = `
         
     `
+}
+
+function renderTransactionList() {
+    
 }
