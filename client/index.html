@@ -9,9 +9,12 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/transaction_list.css">
 
     <!-- our functions -->
-    <script defer src="/js/initialize.js"></script>
+    <script src="/js/initialize.js"></script>
+    <script defer src="/js/components/transaction_list.js"></script>
+    <script defer src="/js/components/transaction_history.js"></script>
     <script defer src="/js/components/sign_up.js"></script>
     <script defer src="/js/components/login.js"></script>
     <script defer src="/js/components/overview.js"></script>
@@ -22,6 +25,7 @@
   <h1>Budget Tracker</h1>
   <nav class="header-nav">
     <ul>
+      <li onClick="renderTransactionHistory()">Transaction History</li>
       <li onClick="renderEditTransaction()">Edit Transaction</li>
       <li onClick="renderSignUp()">Sign Up</li>
       <li onClick="renderLogin()">Login</li>

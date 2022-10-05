@@ -1,0 +1,110 @@
+
+/* FLEXBOX */
+
+.transaction-tracking-items {
+  display: flex;
+  flex-direction: column;
+  /* gap: 1em; */
+}
+
+.transaction-list-title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+  font-size: 0.8em;
+
+  border-bottom: 3px solid #222;
+}
+
+.transaction-list-title > p {
+  margin-bottom: 0.5em;
+}
+
+.title-date {
+  padding: 0 0.25em;
+  width: 25%;
+  font-weight: 600;
+}
+
+.title-transaction {
+  padding: 0 0.25em;
+  width: 75%;
+}
+
+.tracked-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9em;
+  font-weight: 600;
+}
+
+.tracked-item-date {
+  width: 15%;
+  align-self: center;
+  text-align: right;
+}
+
+.tracked-item-divider {
+  position: relative;
+  width: 2px;
+  height: inherit;
+  background-color: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+}
+
+.tracked-item-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #222;
+  transform: translate(-50%, -50%);
+}
+
+.tracked-item-info {
+  width: 75%;
+  margin: 0.5em 0;
+  padding: 0.6em 0.5em;
+  font-size: 1.25em;
+
+  border-radius: 0.5em;
+}
+
+
+
+/* Transaction Item colours */
+
+.item-style-red, .item-style-blue, .item-style-brown, .item-style-orange {
+  color: #EEEEEE;
+}
+
+.item-style-red {
+  background-color: #f77;
+  color: #fff;
+}
+
+.item-style-blue {
+  background-color: #77f;
+  color: #fff;
+}
+
+.item-style-brown {
+  background-color: rgb(146, 112, 45);
+  color: #fff;
+}
+
+.item-style-orange {
+  background-color: rgb(248, 174, 89);
+  color: #333;
+}
+
+.item-style-yellow {
+  background-color: #ff7;
+  color: #333;
+}
