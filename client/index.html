@@ -44,24 +44,20 @@
 </head>
 <body class="container">
   <h1>Budget Tracker</h1>
-  <nav class="navbar navbar-expand-lg bg-light">
-    <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link" onclick="renderLandingPage()">Landing Page</a>
-          <a class="nav-link" onclick="renderTransactionOverview()">Overview</a>
-          <a class="nav-link" onclick="renderTransactionManager()">Manager</a>
-          <a class="nav-link" onclick="renderTransactionHistory()">History</a>
-          <a class="nav-link" onclick="renderTransactionAdd()">Add Transaction</a>
-          <a class="nav-link" onclick="renderTransactionEdit()">Edit Transaction</a>
-          <a class="nav-link" onclick="renderList('manager')">Transactions - Manager</a>
-          <a class="nav-link" onclick="renderList('history')">Transactions - History</a>
-          <a class="nav-link" onclick="renderSignUp()">Sign Up</a>
-          <a class="nav-link" onclick="renderLogin()">Login</a>
-          <a class="nav-link" onclick="invokeUserLogout()">Logout</a>
-        </div>
-      </div>
-    </div>
+  <nav class="header-nav">
+    <ul>
+      <li onclick="renderLandingPage()">Landing Page</li>
+      <li onclick="renderTransactionOverview()">Overview</li>
+      <li onclick="renderTransactionManager()">Manager</li>
+      <li onclick="renderTransactionHistory()">History</li>
+      <li onclick="renderTransactionAdd()">Add Transaction</li>
+      <li onclick="renderTransactionEdit()"><i>Edit Transaction (test)</i></li>
+      <li onclick="renderList('manager')"><i>List Transactions - Manager (test)</i></li>
+      <li onclick="renderList('history')"><i>List Transactions - History (test)</i></li>
+      <li onclick="renderSignUp()">Sign Up</li>
+      <li onclick="renderLogin()">Login</li>
+      <li id="logoutBtn" onclick="invokeUserLogout()">Logout</li>
+    </ul>
   </nav>
   <main id="page" class="content"></main>
 </body>
