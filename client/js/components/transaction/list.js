@@ -95,7 +95,7 @@ function renderTransactionListExpenses() {
             let randColourArrIndex = Math.floor(Math.random() * colourClassOptions.length);
             
             return `
-                <div class="tracked-item" data-id="${ts.id}">
+                <div class="tracked-item">
                     <div class="tracked-item-date">${date} ${month}</div>
                     <span class="tracked-item-divider"></span>
                     <div class="tracked-item-info ${colourClassOptions[randColourArrIndex]}">
@@ -103,7 +103,7 @@ function renderTransactionListExpenses() {
                         <div class="tracked-item-content" hidden>${ts.description}</div>
                     </div>
                     <div class="edit" onClick="renderTransactionEdit(${ts.id})">Edit</div>
-                    <div class="delete" onClick="deleteTransaction(event)">Delete</div>
+                    <div class="delete" onClick="deleteTransaction(${ts.id})">Delete</div>
                 </div>
             `
         })
@@ -138,7 +138,7 @@ function renderTransactionListIncomes() {
                         <div class="tracked-item-content" hidden>${ts.description}</div>
                     </div>
                     <div class="edit" onClick="renderTransactionEdit(${ts.id})">Edit</div>
-                    <div class="delete" onClick="deleteTransaction(event)">Delete</div>
+                    <div class="delete" onClick="deleteTransaction(${ts.id})">Delete</div>
                 </div>
             `
         })
@@ -166,10 +166,7 @@ function renderTransactionListManager() {
 //     })
 // }
 
-function deleteTransaction(event) {
-  const deleteBtn = event.target
-  const transactionDOM = deleteBtn.closest('.tracked-item')
-  const transactionId = transactionDOM.dataset.id
+function deleteTransaction(transactionId) {
   console.log(transactionId)
 
   fetch(`/api/transactions/${transactionId}`, {

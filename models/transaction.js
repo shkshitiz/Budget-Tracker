@@ -58,10 +58,12 @@ const Transaction = {
         id = $1
     `
 
-    db.query(sql, [id])
-
-    console.log("Transaction has been deleted")
-    return { "message": "Transaction has been deleted" }
+    return db
+      .query(sql, [id])
+      .then(dbRes => {
+        console.log("Transaction has been deleted")
+        // { "message": "Transaction has been deleted" }
+      })
   },
 
   findCurrentMonthByUserId: (date, userId) => {
