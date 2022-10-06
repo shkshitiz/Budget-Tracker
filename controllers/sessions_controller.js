@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
   if (req.session.userId) {
     User
       .findById(req.session.userId)
-      .then(username => res.json(username))
+      .then(email => res.json(email))
   } else {
     res.json({ error: 'no one logged in' })
   }

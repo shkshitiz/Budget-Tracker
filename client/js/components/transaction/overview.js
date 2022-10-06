@@ -8,16 +8,6 @@ function renderTransactionOverview() {
   // Draw the chart and set the chart values
 
   function drawChart() {
-    // var data = google.visualization.arrayToDataTable([
-    // ['Task', 'Hours per Day'],
-    // ['Work', 8],
-    // ['Friends', 2],
-    // ['Eat', 2],
-    // ['TV', 2],
-    // ['Gym', 2],
-    // ['Sleep', 8]
-    // ]);
-  
     var arrayOfUserExpenses = [];
   
     var transactionDemoAmounts = [100, 1800, -20, -1500]
