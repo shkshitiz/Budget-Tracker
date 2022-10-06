@@ -11,6 +11,16 @@ const Transaction = {
       .then(dbRes => dbRes.rows)
   },
 
+  find: (transactionId) => {
+    const sql = `
+      SELECT * FROM transactions WHERE id = $1
+    `
+
+    return db
+      .query(sql, [transactionId])
+      .then(dbRes => dbRes.rows[0])
+  },
+
   create: (userId, date, amount, name, description) => {
     const sql = `
       INSERT INTO transactions (user_id, date, amount, name, description)
