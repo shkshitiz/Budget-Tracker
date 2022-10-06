@@ -1,7 +1,8 @@
 const state = {
   userTransactions: [],
   loggedInUserEmail: 'a@gmail.com',
-  currentDate: new Date('2022-10-06')
+  currentDate: new Date('2022-10-06'),
+  loggedInUsername: 'a'
 }
 
 fetch('/api/sessions')
@@ -24,16 +25,4 @@ if (typeof state.loggedInUserEmail === 'string') {
     .then(transactions => {
       state.userTransactions = transactions
     })
-}
-
-function renderLandingPage() {
-  document.querySelector('#page').innerHTML = `
-  <section class='main-logo'> 
-  <h1>BudgetTracker</h1>
-  </section>
-  <section class='options'>
-    <button onclick="renderLogin()">Login</button>
-    <button onclick="renderSignUp()">Sign Up</button>
-  </section>
-  `
 }
