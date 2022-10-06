@@ -15,7 +15,7 @@ fetch('/api/sessions')
 if (typeof state.loggedInUserEmail === 'string') {
   let data = `{ "userEmail" : "${state.loggedInUserEmail}" }`
 
-  fetch('/api/transactions', {
+  fetch('/api/transactions/user', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: data

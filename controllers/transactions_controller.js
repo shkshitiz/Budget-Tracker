@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
   res.status(401).json({ errorCode: '401', error: 'needs to be logged in to access user data.'})
 })
 
-router.post('/', (req, res) => {
+router.post('/user', (req, res) => {
 
   const { userEmail } = req.body
   console.log(`userEmail: ${userEmail}`)
