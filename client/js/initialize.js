@@ -25,3 +25,15 @@ if (typeof state.loggedInUserEmail === 'string') {
       state.userTransactions = transactions
     })
 }
+
+function renderLandingPage() {
+  document.querySelector('#page').innerHTML = `
+  <section class='main-logo'> 
+  <h1>BudgetTracker</h1>
+  </section>
+  <section class='options'>
+    <button onclick="renderLogin()">Login</button>
+    <button onclick="renderSignUp()">Sign Up</button>
+  </section>
+  `
+}
