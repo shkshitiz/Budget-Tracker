@@ -1,19 +1,17 @@
 function renderLogin() {
   document.querySelector('#page').innerHTML = `
-    <section class='log-in'>
-      <form onSubmit="login(event)">
-        <h2>Login:</h2>
-        <fieldset>
-          <label for="">Email: </label>
-          <input type="text" name="email">
-        </fieldset>
-        <fieldset>
-          <label for="">Password: </label>
-          <input type="password" name="password">
-        </fieldset>
-        <button>Login</button>
-      </form>
-    </section>
+  <div class="center-dialog d-flex align-items-center justify-content-center">
+    <div class="card" style="width: 30rem">
+      <div class="card-body">
+        <h1 class="card-title">Login</h1>
+        <form onSubmit="login(event)">
+          <input type="text" placeholder="Email" name="email" />
+          <input type="password" placeholder="Password" name="password" />
+          <button class="btn btn-primary">Sign Up</button>
+        </form>
+      </div>
+    </div>
+  </div>
   `
 }
 
