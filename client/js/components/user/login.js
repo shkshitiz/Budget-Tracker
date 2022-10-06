@@ -7,7 +7,7 @@ function renderLogin() {
         <form onSubmit="login(event)">
           <input type="text" placeholder="Email" name="email" />
           <input type="password" placeholder="Password" name="password" />
-          <button class="btn btn-primary">Sign Up</button>
+          <button class="btn btn-primary">Log in</button>
         </form>
       </div>
     </div>
@@ -34,7 +34,7 @@ function login(event) {
         renderError(res.error)
       } else {
         state.loggedInUserEmail = res.email
-        state.username = res.username
+        state.loggedInUsername = res.username
         renderTransactionOverview()
         console.log('logged in')
       }
