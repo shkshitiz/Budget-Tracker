@@ -33,63 +33,36 @@ const Transaction = {
             .then(dbRes => dbRes.rows[0])
   },
 
-  verify: (id, userId) => {
-    // Grab user_id from transaction that you want to access
-    const sql = `SELECT user_id WHERE id = $1`
+  update: (id, date, amount, name, description) => {
 
+    const sql = `
+      UPDATE transactions
+      SET
+        date = $2, amount = $3, name = $4, description = $5
+      WHERE
+        id = $1
+      RETURNING *
+    `
+
+    console.log("Transaction has been updated")
     return db
-            .query(sql, [userId])
-            .then(dbRes => {
-              if (dbRes.rows[0] === id) {
-                return true
-              } else {
-                console.log("Error: User is not the owner of this transaction!")
-                return false
-              }
-            })
-  },
-
-  update: (id, userId, date, amount, name, description) => {
-    // this will verify if the user is the owner of the transaction or not
-    this.verify(id, userId)
-      .then(isOwnerOfTransaction => {
-        if (!isOwnerOfTransaction) {
-          return { "error": "User is not the owner of this transaction!" }
-        }
-        const sql = `
-          UPDATE transactions
-          SET
-            date = $2, amount = $3, name = $4, description = $5
-          WHERE
-            id = $1
-          RETURNING *
-        `
-
-        console.log("Transaction has been updated")
-        return db
-                .query(sql, [id, date, amount, name, description])
-                .then(dbRes => dbRes.rows[0])
-      })
+            .query(sql, [id, date, amount, name, description])
+            .then(dbRes => dbRes.rows[0])
   },
 
   deleteById: (id) => {
-    this.verify(id, userId)
-      .then(isOwnerOfTransaction => {
-        if (!isOwnerOfTransaction) {
-          return { "error": "User is not the owner of this transaction!" }
-        }
+    const sql = `
+      DELETE FROM
+        transactions
+      WHERE
+        id = $1
+    `
 
-        const sql = `
-          DELETE FROM
-            transactions
-          WHERE
-            id = $1
-        `
-
-        db.query(sql, [id])
-
+    return db
+      .query(sql, [id])
+      .then(dbRes => {
         console.log("Transaction has been deleted")
-        return { "message": "Transaction has been deleted" }
+        // { "message": "Transaction has been deleted" }
       })
   },
 
