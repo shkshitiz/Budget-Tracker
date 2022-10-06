@@ -1,6 +1,7 @@
 const state = {
   userTransactions: [],
-  loggedInUserEmail: null
+  loggedInUserEmail: null,
+  currentDate: 2022-10-06
 }
 
 fetch('/api/sessions')
