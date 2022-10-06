@@ -8,8 +8,7 @@ function renderTransactionEdit(itemId) {
         <main>
           <form onSubmit="updateTransaction(event)">
             <h2>Edit Transaction</h2>
-            <input type="hidden" value="${transaction.id}">
-
+            <input type="hidden" name="id" value="${transaction.id}">
             <fieldset>
               <label for="name">Name: </label>
               <input type="text" name="name" value="${transaction.name}">
@@ -49,8 +48,9 @@ function updateTransaction(event) {
   })
     .then(res => res.json())
     .then(updatedTransaction => {
-      state.userTransactions
+      state.userTransactions = state.userTransactions
         .map(transaction => {
+          // console.log(`${transaction.id} vs ${updatedTransaction.id}`)
           if (transaction.id === updatedTransaction.id) {
             return updatedTransaction
           } else {

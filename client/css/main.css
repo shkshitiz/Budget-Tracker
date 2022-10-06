@@ -3,7 +3,7 @@
 }
 
 body {
-    background-color: rgb(216, 235, 242);
+    background-color: rgb(255, 255, 255);
     color: #222;
     margin: 0 auto;
     width: 90vw;
@@ -31,4 +31,12 @@ body {
 
 .navbar-nav a {
   text-align: center;
+}
+
+.material-icons {
+  padding-top: 2rem;
+}
+
+.material-icons:hover {
+  cursor: pointer;
 }

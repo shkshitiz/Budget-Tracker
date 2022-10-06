@@ -1,15 +1,17 @@
 function renderLogin() {
   document.querySelector('#page').innerHTML = `
   <div class="center-dialog d-flex align-items-center justify-content-center">
-    <div class="card" style="width: 30rem">
-      <div class="card-body">
-        <h1 class="card-title">Login</h1>
-        <form onSubmit="login(event)">
-          <input type="text" placeholder="Email" name="email" />
-          <input type="password" placeholder="Password" name="password" />
-          <button class="btn btn-primary">Sign Up</button>
-        </form>
-      </div>
+    <div class="card-body">
+      <section class='main-logo'> 
+      <img src="https://i.imgur.com/1aor9pi.png" alt="">
+      <h3>Login</h3>
+      </section>
+      <form onSubmit="login(event)">
+        <input type="text" placeholder="Email" name="email" />
+        <input type="password" placeholder="Password" name="password" />
+        <button class="btn btn-primary">Log in</button>
+      </form>
+      <i onClick="renderLandingPage()" class="material-icons">arrow_back</i>
     </div>
   </div>
   `
@@ -34,7 +36,7 @@ function login(event) {
         renderError(res.error)
       } else {
         state.loggedInUserEmail = res.email
-        state.username = res.username
+        state.loggedInUsername = res.username
         renderTransactionOverview()
         console.log('logged in')
       }

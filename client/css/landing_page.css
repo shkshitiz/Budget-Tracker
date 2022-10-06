@@ -1,0 +1,25 @@
+.main-logo {
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
+.main-logo h1 {
+  font-size: 3rem;
+}
+
+.main-logo img {
+  height: 4rem;
+}
+
+.gif img {
+  height: 10rem;
+}
+
+.options {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  gap: 2rem;
+}
+
