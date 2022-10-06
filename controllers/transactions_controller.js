@@ -8,17 +8,27 @@ const User = require('../models/user')
 // routes
 // read
 router.get('/', (req, res) => {
-  const { userEmail } = req.body
-  const userId = User.findByEmail(userEmail).id
-  const isUserEmailFound = (typeof userEmailDb === 'string')
+  res.status(401).json({ errorCode: '401', error: 'needs to be logged in to access user data.'})
+})
 
-  if (isUserEmailFound) {
-    Transaction
-      .findAllByUserId()
-      .then(transactions => res.json(transactions))
-  } else {
-    res.status(401).json({ errorCode: '401', error: 'needs to be logged in to access user data.'})
-  }
+router.post('/', (req, res) => {
+
+  const { userEmail } = req.body
+  console.log(`userEmail: ${userEmail}`)
+
+  User
+    .findByEmail(userEmail)
+    .then(user => {
+      console.log(user)
+
+      if (typeof user !== null) {
+        Transaction
+          .findAllByUserId(user.id)
+          .then(transactions => res.json(transactions))
+      } else {
+        res.status(404).json({ errorCode: '404', error: 'user not found'})
+      }
+  })
 })
 
 // create

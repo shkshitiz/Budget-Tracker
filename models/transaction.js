@@ -2,7 +2,8 @@ const db = require('../db/db')
 
 const Transaction = {
   findAllByUserId: (userId) => {
-    const sql = `SELECT * FROM transactions WHERE user_id = $1 ORDER BY id`
+    const sql = `SELECT * FROM transactions WHERE user_id = $1`
+    console.log("sql being ran")
     return db
             .query(sql, [userId])
             .then(dbRes => dbRes.rows)
