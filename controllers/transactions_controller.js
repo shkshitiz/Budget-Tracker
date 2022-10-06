@@ -6,19 +6,18 @@ const Transaction = require('../models/transaction')
 
 // routes
 // read
-router.get('/', (req, res) => {
+router.get('/user/:id', (req, res) => {
   Transaction
-    .findAll()
+    .findAll(req.params.id)
     .then(transactions => res.json(transactions))
 })
 
 // create
 router.post('/', (req, res) => {
-  const {name, category, amount, description, period, starDate, endDate} = req.body
-
+  const {userId, name, date, category, amount, description} = req.body
 
   Transaction
-    .create(name, category, amount, description, period, starDate, endDate)
+    .create(userId, date, amount, name, description, category)
     .then(transaction => res.json(transaction))
 })
 
@@ -34,10 +33,10 @@ router.get('/:id', (req, res) => {
 })
 
 router.put('/:id', (req, res) => {
-  const {name, category, amount, description, period, starDate, endDate} = req.body
+  const {name, date, category, amount, description} = req.body
 
   Transaction
-    .update(req.params.id, name, category, amount, description, period, starDate, endDate)
+    .update(req.params.id, date, amount, name, description, category)
 
 })
 

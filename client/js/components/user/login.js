@@ -35,10 +35,8 @@ function login(event) {
         renderLogin()
         renderError(res.error)
       } else {
-        const username = res
-        // state.loggedInUserName = username
-        renderOverview()
-        drawChart()
+        state.loggedInUserEmail = res.email
+        renderTransactionOverview()
         console.log('logged in')
       }
     })
