@@ -32,16 +32,18 @@ router.post('/user', (req, res) => {
 
 // create
 router.post('/', (req, res) => {
-  const {userId, name, date, category, amount, description} = req.body
+  const { userEmail, name, date, amount, description } = req.body
 
-  Transaction
-    .create(userId, date, amount, name, description, category)
-    .then(transaction => res.json(transaction))
+  User
+    .findByEmail(userEmail)
+    .then(user => {
+      Transaction
+        .create(user.id, date, amount, name, description)
+        .then(transaction => res.json(transaction))
+    })
 })
 
 // update
-// router.put('/', (req, res) => {
-//   const transactionId = req.params.id
 router.get('/:id/edit', (req, res) => {
   const transactionId = req.params.id
 
@@ -51,11 +53,11 @@ router.get('/:id/edit', (req, res) => {
 })
 
 router.put('/:id', (req, res) => {
-  const {name, date, category, amount, description} = req.body
+  const {name, date, amount, description} = req.body
 
   Transaction
     .update(req.params.id, date, amount, name, description, category)
-
+    .then(updatedTransaction => res.json(updatedTransaction))
 })
 
 // delete
