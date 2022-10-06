@@ -19,7 +19,7 @@ function renderTransactionAdd() {
         </fieldset>
 
         <fieldset>
-          <label for="">Date paid: </label>
+          <label for="">Date: </label>
           <input type="date" name="Date">
         </fieldset>
 
@@ -41,7 +41,7 @@ function createTransaction(event) {
   })
     .then(res => res.json())
     .then(transaction => {
-      state.transactions.push(transaction)
+      state.userTransactions.push(transaction)
       renderTransactionHistory()
     })
 }

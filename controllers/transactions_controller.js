@@ -48,7 +48,7 @@ router.get('/:id/edit', (req, res) => {
 
   Transaction
     .find(transactionId)
-    .then(() => res.json({message: `grabbed ${transactionId}`}))
+    .then(transaction  => res.json(transaction))
 })
 
 router.put('/:id', (req, res) => {
