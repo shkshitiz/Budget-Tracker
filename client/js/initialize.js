@@ -2,12 +2,6 @@ const state = {
   transactions: []
 }
 
-fetch('/api/transactions')
-.then(res => res.json())
-.then(transactions => {
-  state.transactions = transactions
-})
-
 fetch('/api/sessions')
 .then(res => res.json())
 .then(userName => {
@@ -15,3 +9,11 @@ fetch('/api/sessions')
     state.loggedInUserName = userName
   }
 })
+
+if (typeof state.loggedInUserName === 'string') {
+  fetch('/api/transactions')
+    .then(res => res.json())
+    .then(transactions => {
+      state.transactions = transactions
+    })
+}

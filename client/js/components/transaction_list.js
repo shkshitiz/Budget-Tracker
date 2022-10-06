@@ -13,12 +13,20 @@ function renderTransactionListTitle() {
 
 // Because we are NOT yet ready to implement database data into the transaction list, I've made it easy to remove temporary data in the future.
 // still a lot of work left to do, but I (Titus) will need to get the database working... I didn't do it right the other night and I apologise.
-function renderTransactionList(transactionData) {
+function renderTransactionListHistory(transactionData) {
     return `
         <div class="transaction-tracking-items">
             ${prototypeDatabaseDisplay}
         </div>
     `
+}
+
+function renderTransactionListExpense(transactionData) {
+
+}
+
+function renderTransactionListManager(transactionData) {
+    
 }
 
 let prototypeDatabaseDisplay = `
