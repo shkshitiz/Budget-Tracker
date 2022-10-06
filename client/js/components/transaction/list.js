@@ -75,13 +75,110 @@ function historicalTransactionList() {
     return historicalTransaction.join('')
 }
 
-function renderTransactionListExpense() {
-    
+function renderTransactionListExpenses() {
+  let expense = state.userTransactions
+        .filter(transaction => {
+          return transaction.amount < 0
+        })
+        .filter(transaction => {
+            let tsTime = new Date(transaction.date)
+            let cDTime = state.currentDate
+            if (tsTime.getTime() >= cDTime.getTime()) {
+                return transaction
+            }
+        }).map(ts => {
+            let date = new Date(ts.date).getDate()
+            let month = new Date(ts.date)
+                .toLocaleString('en-US', {
+                    month: 'short',
+                })
+            let randColourArrIndex = Math.floor(Math.random() * colourClassOptions.length);
+            
+            return `
+                <div class="tracked-item" data-id="${ts.id}">
+                    <div class="tracked-item-date">${date} ${month}</div>
+                    <span class="tracked-item-divider"></span>
+                    <div class="tracked-item-info ${colourClassOptions[randColourArrIndex]}">
+                        <div class="tracked-item-title">${(ts.amount > 0 ? '+' : '-')} $${Math.abs(ts.amount)} - ${ts.name}</div>
+                        <div class="tracked-item-content" hidden>${ts.description}</div>
+                    </div>
+                    <div class="edit" onClick="editTransaction(event)">Edit</div>
+                    <div class="delete" onClick="deleteTransaction(event)">Delete</div>
+                </div>
+            `
+        })
+    return expense
+}
+
+function renderTransactionListIncomes() {
+  let incomes = state.userTransactions
+        .filter(transaction => {
+          return transaction.amount > 0
+        })
+        .filter(transaction => {
+            let tsTime = new Date(transaction.date)
+            let cDTime = state.currentDate
+            if (tsTime.getTime() >= cDTime.getTime()) {
+                return transaction
+            }
+        }).map(ts => {
+            let date = new Date(ts.date).getDate()
+            let month = new Date(ts.date)
+                .toLocaleString('en-US', {
+                    month: 'short',
+                })
+            let randColourArrIndex = Math.floor(Math.random() * colourClassOptions.length);
+            
+            return `
+                <div class="tracked-item">
+                    <div class="tracked-item-date">${date} ${month}</div>
+                    <span class="tracked-item-divider"></span>
+                    <div class="tracked-item-info ${colourClassOptions[randColourArrIndex]}">
+                        <div class="tracked-item-title">${(ts.amount > 0 ? '+' : '-')} $${Math.abs(ts.amount)} - ${ts.name}</div>
+                        <div class="tracked-item-content" hidden>${ts.description}</div>
+                    </div>
+                    <div>Edit</div>
+                    <div>Delete</div>
+                </div>
+            `
+        })
+    return incomes
 }
 
 function renderTransactionListManager() {
     // take the data and split it up into "expense" and "income"
+
+    
 }
+
+function editTransaction(event) {
+  const editBtn = event.target
+  const transactionDOM = editBtn.closest('.tracked-item')
+  const transactionId = transactionDOM.dataset.id
+  console.log(transactionId)
+
+
+  fetch(`/api/transactions/${transactionId}`, {
+    method: 'GET'
+  })
+}
+
+function deleteTransaction(event) {
+  const deleteBtn = event.target
+  const transactionDOM = deleteBtn.closest('.tracked-item')
+  const transactionId = transactionDOM.dataset.id
+  console.log(transactionId)
+
+  fetch(`/api/transactions/${transactionId}`, {
+    method: 'DELETE'
+  })
+    .then (() => {
+      state.userTransactions = state.userTransactions.filter(transaction => transaction.id != transactionId)
+      renderTransactionManager()
+    })
+}
+
+// renderEditTransaction(transaction)
 
 let prototypeDatabaseDisplay = `
     <div class="tracked-item">

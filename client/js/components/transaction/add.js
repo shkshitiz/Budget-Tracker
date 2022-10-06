@@ -1,4 +1,4 @@
-function renderAddTransaction() {
+function renderTransactionAdd() {
   document.querySelector('#page').innerHTML = `
     <section class='create-transaction'>
       <form onSubmit="createTransaction(event)">

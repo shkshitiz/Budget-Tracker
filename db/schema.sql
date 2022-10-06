@@ -80,3 +80,32 @@ VALUES (
     'e-bike',
     'trying to get more fit by riding a bike some more this coming summer'
 );
+
+INSERT INTO transactions (user_id, date, amount, name, description)
+VALUES (
+    1,
+    TO_TIMESTAMP(1666948620),
+    1800,
+    'future',
+    '#$@^%$%^&^(**_+'
+);
+
+-- "-1" for the period means it is monthly at the same date every month, from the start_date
+-- extension to use it in "period" in the future as extension, currently it will set it as 28 days for "monthly"
+INSERT INTO transactions (user_id, date, amount, name, description)
+VALUES (
+    1,
+    TO_TIMESTAMP(1666257420),
+    -20,
+    'future debts',
+    '3246579879898-09'
+);
+
+INSERT INTO transactions (user_id, date, amount, name, description)
+VALUES (
+    1,
+    TO_TIMESTAMP(1665739020),
+    -2000,
+    'another future',
+    'kjvkjhv;b;kn'
+    );
