@@ -36,9 +36,6 @@ function renderTransactionListTitle() {
     `
 }
 
-/* <p>${transaction.start_date}</p> */
-/* <p>${amountSign} $${transaction.amount} - ${transaction.name}</p> */
-
 function renderTransactionListHistory() {
     // Remote all future transaction data to only see past transaction data
     return `
@@ -75,8 +72,7 @@ function historicalTransactionList() {
                 </div>
             `
         })
-    
-    return historicalTransaction
+    return historicalTransaction.join('')
 }
 
 function renderTransactionListExpense() {
