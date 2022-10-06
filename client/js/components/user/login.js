@@ -7,7 +7,7 @@ function renderLogin() {
         <form onSubmit="login(event)">
           <input type="text" placeholder="Email" name="email" />
           <input type="password" placeholder="Password" name="password" />
-          <button class="btn btn-primary">Sign Up</button>
+          <button class="btn btn-primary">Log in</button>
         </form>
       </div>
     </div>
