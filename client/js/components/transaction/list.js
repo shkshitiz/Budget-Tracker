@@ -158,7 +158,7 @@ function editTransaction(event) {
   console.log(transactionId)
 
 
-  fetch(`/api/transaction/${transactionId}`, {
+  fetch(`/api/transactions/${transactionId}`, {
     method: 'GET'
   })
 }
@@ -173,7 +173,7 @@ function deleteTransaction(event) {
     method: 'DELETE'
   })
     .then (() => {
-      state.userTransaction = state.userTransaction.filter(transaction => transaction.id != transactionId)
+      state.userTransactions = state.userTransactions.filter(transaction => transaction.id != transactionId)
       renderTransactionManager()
     })
 }
