@@ -1,25 +1,18 @@
 function renderSignUp() {
   document.querySelector('#page').innerHTML = `
-  <main>
-  <form onSubmit="createUser(event)">
-    <h2>
-      Sign Up
-    </h2>
-    <section>
-      <label for="">Username: </label>
-      <input type="text" name="username">
-    </section>
-    <section>
-      <label for="">Email: </label>
-      <input type="text" name="email">
-    </section>
-    <section>
-      <label for="">Password: </label>
-      <input type="password" name="password">
-    </section>
-    <button>Sign Up</button>
-    </form>
-   </main>
+  <div class="center-dialog d-flex align-items-center justify-content-center">
+    <div class="card" style="width: 30rem">
+      <div class="card-body">
+        <h1 class="card-title">Budget Tracker</h1>
+        <form onSubmit="createUser(event)">
+          <input type="text" placeholder="Name" name="username" />
+          <input type="text" placeholder="Email" name="email" />
+          <input type="password" placeholder="Password" name="password" />
+          <button class="btn btn-primary">Sign Up</button>
+        </form>
+      </div>
+    </div>
+  </div>
   `
 }
 
