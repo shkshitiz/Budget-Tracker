@@ -43,7 +43,7 @@ router.post('/', (req, res) => {
 // update
 // router.put('/', (req, res) => {
 //   const transactionId = req.params.id
-router.get('/:id', (req, res) => {
+router.get('/:id/edit', (req, res) => {
   const transactionId = req.params.id
 
   Transaction
@@ -64,7 +64,7 @@ router.delete('/:id', (req, res) => {
   const transactionId = req.params.id
 
   Transaction
-    .delete(transactionId)
+    .deleteById(transactionId)
     .then(() => res.json({message: 'deleted successfully'}))
 })
 

@@ -157,10 +157,27 @@ function editTransaction(event) {
   const transactionId = transactionDOM.dataset.id
   console.log(transactionId)
 
+
   fetch(`/api/transaction/${transactionId}`, {
-    method: 'PUT'
+    method: 'GET'
   })
 }
+
+function deleteTransaction(event) {
+  const deleteBtn = event.target
+  const transactionDOM = deleteBtn.closest('.tracked-item')
+  const transactionId = transactionDOM.dataset.id
+  console.log(transactionId)
+
+  fetch(`/api/transactions/${transactionId}`, {
+    method: 'DELETE'
+  })
+    .then (() => {
+      state.userTransaction = state.userTransaction.filter(transaction => transaction.id != transactionId)
+      renderTransactionManager()
+    })
+}
+
 // renderEditTransaction(transaction)
 
 let prototypeDatabaseDisplay = `
