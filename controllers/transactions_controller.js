@@ -12,14 +12,12 @@ router.get('/', (req, res) => {
 })
 
 router.post('/user', (req, res) => {
-  console.log('dfghstest')
-
   const { userEmail } = req.body
 
   User
     .findByEmail(userEmail)
     .then(user => {
-      console.log(user)
+      // console.log(user)
       if (typeof user !== 'undefined') {
         Transaction
           .findAllByUserId(user.id)
@@ -45,27 +43,23 @@ router.post('/', (req, res) => {
 
 // update
 router.get('/:id/edit', (req, res) => {
-  const transactionId = req.params.id
-
   Transaction
-    .find(transactionId)
+    .find(req.params.id)
     .then(transaction  => res.json(transaction))
 })
 
 router.put('/:id', (req, res) => {
-  const {name, date, amount, description} = req.body
+  const { name, date, amount, description } = req.body
 
   Transaction
-    .update(req.params.id, date, amount, name, description, category)
+    .update(req.params.id, date, amount, name, description)
     .then(updatedTransaction => res.json(updatedTransaction))
 })
 
 // delete
 router.delete('/:id', (req, res) => {
-  const transactionId = req.params.id
-
   Transaction
-    .deleteById(transactionId)
+    .deleteById(req.params.id)
     .then(() => res.json({message: 'deleted successfully'}))
 })
 
