@@ -4,6 +4,7 @@ function renderSignUp() {
     <div class="card-body">
       <section class='main-logo'> 
       <img src="https://i.imgur.com/1aor9pi.png" alt="">
+      <h3>Sign Up</h3>
       </section>
       <form onSubmit="createUser(event)">
         <input type="text" placeholder="Name" name="username" />
@@ -11,6 +12,8 @@ function renderSignUp() {
         <input type="password" placeholder="Password" name="password" />
         <button class="btn btn-primary">Sign Up</button>
       </form>
+
+       <i onClick="renderLandingPage()" class="material-icons">arrow_back</i>
     </div>
   </div>
   `

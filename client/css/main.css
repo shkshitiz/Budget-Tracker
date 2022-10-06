@@ -32,3 +32,11 @@ body {
 .navbar-nav a {
   text-align: center;
 }
+
+.material-icons {
+  padding-top: 2rem;
+}
+
+.material-icons:hover {
+  cursor: pointer;
+}
