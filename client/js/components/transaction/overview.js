@@ -2,7 +2,7 @@ google.charts.load('current', {'packages':['corechart']});
 
 function renderTransactionOverview() {
   document.querySelector('#page').innerHTML = `
-  <h1>Hi there, user!</h1>  
+  <h1>Hi there, ${state.username}!</h1>  
   <p>Your budget overview for this month:</p>
   <div id="piechart"></div>
   `
