@@ -1,46 +1,43 @@
-function renderEditTransaction(transaction) {
-  document.querySelector('#page').innerHTML = `
-  <main>
-  <form onSubmit="editTransaction(event)">
-    <h2>
-      Edit Transaction
-    </h2>
-    <input type="hidden" value="${transaction.id}">
-    <section>
-      <label for="name">Name: </label>
-      <input type="text" name="name" value="${transaction.name}">
-    </section>
-    <section>
-      <label for="amount">Amount: </label>
-      <input type="text" name="amount" value="${transaction.amount}">
-    </section>
-    <section>
-      <label for="category">Category: </label>
-      <input type="text" name="category" value="${transaction.category}">
-    </section>
-    <section>
-      <label for="description">Description: </label>
-      <input type="text" name="description" value="${transaction.description}">
-    </section>
-    <section>
-      <label for="period">Period: </label>
-      <input type="checkbox" name="period" value="${transaction.period}">
-    </section>
-    <section>
-      <label for="startDate">Start Date: </label>
-      <input type="date" name="startDate" value="${transaction.startDate}">
-    </section>
-    <section>
-      <label for="endDate">End Date: </label>
-      <input type="date" name="endDate" value="${transaction.endDate}">
-    </section>
-    <button>Save</button>
-    </form>
-   </main>
-  `
+function renderTransactionEdit(itemId) {
+  fetch(`/api/transactions/${itemId}/edit`)
+    .then(res => res.json())
+    .then(transaction => {
+      let dateToUpdate = new Date(transaction.date)
+
+      document.querySelector('#page').innerHTML = `
+        <main>
+          <form onSubmit="updateTransaction(event)">
+            <h2>Edit Transaction</h2>
+            <input type="hidden" value="${transaction.id}">
+
+            <fieldset>
+              <label for="name">Name: </label>
+              <input type="text" name="name" value="${transaction.name}">
+            </fieldset>
+
+            <fieldset>
+              <label for="description">Description: </label>
+              <input type="text" name="description" value="${transaction.description}">
+            </fieldset>
+
+            <fieldset>
+              <label for="amount">Amount: </label>
+              <input type="text" name="amount" value="${transaction.amount}">
+            </fieldset>
+
+            <fieldset>
+              <label for="date">Date: </label>
+              <input type="date" name="date" value="${dateToUpdate.toISOString().slice(0, 10)}">
+            </fieldset>
+
+            <button>Save</button>
+          </form>
+        </main>
+      `
+    })
 }
 
-function editTransaction(event) {
+function updateTransaction(event) {
   event.preventDefault()
   const form = event.target
   const data = Object.fromEntries(new FormData(form))
@@ -51,7 +48,15 @@ function editTransaction(event) {
     body: JSON.stringify(data)
   })
     .then(res => res.json())
-    .then(transaction => {
-      renderTransactionHistory()
+    .then(updatedTransaction => {
+      state.userTransactions
+        .map(transaction => {
+          if (transaction.id === updatedTransaction.id) {
+            return updatedTransaction
+          } else {
+            return transaction
+          }
+        })
+      renderTransactionManager()
     })
 }
