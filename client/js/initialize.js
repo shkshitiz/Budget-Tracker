@@ -1,20 +1,21 @@
 const state = {
   userTransactions: [],
-  loggedInUserName: null
+  loggedInUserEmail: null
 }
 
 fetch('/api/sessions')
 .then(res => res.json())
-.then(userName => {
-  if (typeof userName === 'string') {
-    state.loggedInUserName = userName
+.then(email => {
+  if (typeof email === 'string') {
+    state.loggedInUserEmail = email
   }
 })
 
-if (typeof state.loggedInUserName === 'string') {
+if (typeof state.loggedInUserEmail === 'string') {
   // fetch('/api/transactions')
   //   .then(res => res.json())
   //   .then(transactions => {
   //     state.userTransactions = transactions
   //   })
 }
+
