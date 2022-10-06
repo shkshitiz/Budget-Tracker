@@ -102,7 +102,7 @@ function renderTransactionListExpenses() {
                         <div class="tracked-item-title">${(ts.amount > 0 ? '+' : '-')} $${Math.abs(ts.amount)} - ${ts.name}</div>
                         <div class="tracked-item-content" hidden>${ts.description}</div>
                     </div>
-                    <div class="edit" onClick="renderEditTransaction(${ts.id})">Edit</div>
+                    <div class="edit" onClick="renderTransactionEdit(${ts.id})">Edit</div>
                     <div class="delete" onClick="deleteTransaction(event)">Delete</div>
                 </div>
             `
@@ -137,8 +137,8 @@ function renderTransactionListIncomes() {
                         <div class="tracked-item-title">${(ts.amount > 0 ? '+' : '-')} $${Math.abs(ts.amount)} - ${ts.name}</div>
                         <div class="tracked-item-content" hidden>${ts.description}</div>
                     </div>
-                    <div>Edit</div>
-                    <div>Delete</div>
+                    <div class="edit" onClick="renderTransactionEdit(${ts.id})">Edit</div>
+                    <div class="delete" onClick="deleteTransaction(event)">Delete</div>
                 </div>
             `
         })
