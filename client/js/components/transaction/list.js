@@ -11,9 +11,8 @@ function renderTransactionListTitle() {
 /* <p>${transaction.start_date}</p> */
 /* <p>${amountSign} $${transaction.amount} - ${transaction.name}</p> */
 
-// Because we are NOT yet ready to implement database data into the transaction list, I've made it easy to remove temporary data in the future.
-// still a lot of work left to do, but I (Titus) will need to get the database working... I didn't do it right the other night and I apologise.
-function renderTransactionListHistory(transactionData) {
+function renderTransactionListHistory() {
+    // Remote all future transaction data to only see past transaction data
     return `
         <div class="transaction-tracking-items">
             ${prototypeDatabaseDisplay}
@@ -21,12 +20,12 @@ function renderTransactionListHistory(transactionData) {
     `
 }
 
-function renderTransactionListExpense(transactionData) {
-
+function renderTransactionListExpense() {
+    
 }
 
-function renderTransactionListManager(transactionData) {
-    
+function renderTransactionListManager() {
+    // take the data and split it up into "expense" and "income"
 }
 
 let prototypeDatabaseDisplay = `
