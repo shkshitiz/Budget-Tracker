@@ -37,8 +37,7 @@ function login(event) {
       } else {
         const username = res
         // state.loggedInUserName = username
-        renderOverview()
-        drawChart()
+        renderTransactionOverview()
         console.log('logged in')
       }
     })
