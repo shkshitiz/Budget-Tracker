@@ -40,7 +40,7 @@ router.delete('/', (req, res) => {
   if (req.session) {
     req.session.destroy(err => {
       if (err) {
-        res.status(401).json({ error:'Unable to log out' })
+        res.status(503).json({ error:'Unable to log out' })
       } else {
         res.json({ message: 'Logout successful' })
       }
