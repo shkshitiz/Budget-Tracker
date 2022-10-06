@@ -9,12 +9,16 @@ if (typeof state.loggedInUserEmail !== 'string') {
 
 function renderLandingPage() {
   document.querySelector('#page').innerHTML = `
-    <section class='main-logo'> 
-      <h1>BudgetTracker</h1>
-    </section>
-    <section class='options'>
-      <button onclick="renderLogin()">Login</button>
-      <button onclick="renderSignUp()">Sign Up</button>
-    </section>
+    <div class="center-dialog d-flex align-items-center justify-content-center">
+      <div class="card-body">
+        <section class='main-logo'> 
+          <img src="https://i.imgur.com/1aor9pi.png" alt="">
+        </section>
+        <section class='options'>
+          <button onclick="renderLogin()" class="btn btn-outline-primary">Login</button>
+          <button onclick="renderSignUp()" class="btn btn-primary">Sign Up</button>
+        </section>
+      </div>
+    </div>
   `
 }
