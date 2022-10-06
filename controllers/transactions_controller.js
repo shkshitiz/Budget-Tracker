@@ -3,13 +3,30 @@ const router = express.Router()
 
 // models
 const Transaction = require('../models/transaction')
+const User = require('../models/user')
 
 // routes
 // read
-router.get('/user/:id', (req, res) => {
-  Transaction
-    .findAll(req.params.id)
-    .then(transactions => res.json(transactions))
+router.get('/', (req, res) => {
+  res.status(401).json({ errorCode: '401', error: 'needs to be logged in to access user data.'})
+})
+
+router.post('/', (req, res) => {
+
+  const { userEmail } = req.body
+  console.log(`userEmail: ${userEmail}`)
+
+  User
+    .findByEmail(userEmail)
+    .then(user => {
+      if (typeof user !== 'undefined') {
+        Transaction
+          .findAllByUserId(user.id)
+          .then(transactions => res.json(transactions))
+      } else {
+        res.status(401).json({ errorCode: '404', error: 'user not found, unable to access data.'})
+      }
+  })
 })
 
 // create
