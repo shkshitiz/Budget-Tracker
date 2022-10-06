@@ -12,12 +12,14 @@ router.get('/', (req, res) => {
 })
 
 router.post('/user', (req, res) => {
+  console.log('dfghstest')
 
   const { userEmail } = req.body
 
   User
     .findByEmail(userEmail)
     .then(user => {
+      console.log(user)
       if (typeof user !== 'undefined') {
         Transaction
           .findAllByUserId(user.id)
