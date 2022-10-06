@@ -1,4 +1,32 @@
 
+const colourClassOptions = [
+    'item-style-orange',
+    'item-style-red',
+    'item-style-blue',
+    'item-style-brown',
+    'item-style-yellow'
+]
+
+function renderList(page) {
+    let renderBuffer = ''
+    switch (page) {
+        case 'history':
+            renderBuffer = renderTransactionListHistory()
+            break;
+        case 'manager':
+            renderBuffer = renderTransactionListManager()
+            break;
+        case 'expense':
+            renderBuffer = renderTransactionListExpense()
+            break;
+        default:
+            break;
+    }
+
+
+    document.querySelector('#page').innerHTML = `${renderBuffer}`
+}
+
 function renderTransactionListTitle() {
     return `
         <div class="transaction-list-title">
@@ -15,9 +43,40 @@ function renderTransactionListHistory() {
     // Remote all future transaction data to only see past transaction data
     return `
         <div class="transaction-tracking-items">
-            ${prototypeDatabaseDisplay}
+            ${historicalTransactionList()}
         </div>
     `
+}
+
+function historicalTransactionList() {
+    let historicalTransaction = state.userTransactions
+        .filter(transaction => {
+            let tsTime = new Date(transaction.date)
+            let cDTime = state.currentDate
+            if (tsTime.getTime() <= cDTime.getTime()) {
+                return transaction
+            }
+        }).map(ts => {
+            let date = new Date(ts.date).getDate()
+            let month = new Date(ts.date)
+                .toLocaleString('en-US', {
+                    month: 'short',
+                })
+            let randColourArrIndex = Math.floor(Math.random() * colourClassOptions.length);
+            
+            return `
+                <div class="tracked-item">
+                    <div class="tracked-item-date">${date} ${month}</div>
+                    <span class="tracked-item-divider"></span>
+                    <div class="tracked-item-info ${colourClassOptions[randColourArrIndex]}">
+                        <div class="tracked-item-title">${(ts.amount > 0 ? '+' : '-')} $${Math.abs(ts.amount)} - ${ts.name}</div>
+                        <div class="tracked-item-content" hidden>${ts.description}</div>
+                    </div>
+                </div>
+            `
+        })
+    
+    return historicalTransaction
 }
 
 function renderTransactionListExpense() {
