@@ -24,7 +24,7 @@ router.post('/user', (req, res) => {
           .findAllByUserId(user.id)
           .then(transactions => res.json(transactions))
       } else {
-        res.status(401).json({ errorCode: '404', error: 'user not found, unable to access data.'})
+        res.status(404).json({ errorCode: '404', error: 'user not found, unable to access data.'})
       }
   })
 })
