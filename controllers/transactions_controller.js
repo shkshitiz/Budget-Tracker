@@ -19,14 +19,12 @@ router.post('/', (req, res) => {
   User
     .findByEmail(userEmail)
     .then(user => {
-      console.log(user)
-
-      if (typeof user !== null) {
+      if (typeof user !== 'undefined') {
         Transaction
           .findAllByUserId(user.id)
           .then(transactions => res.json(transactions))
       } else {
-        res.status(404).json({ errorCode: '404', error: 'user not found'})
+        res.status(401).json({ errorCode: '404', error: 'user not found, unable to access data.'})
       }
   })
 })

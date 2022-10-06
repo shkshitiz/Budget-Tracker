@@ -1,6 +1,6 @@
 const state = {
   userTransactions: [],
-  loggedInUserEmail: 'a@gmail.com'
+  loggedInUserEmail: 'a@gmail'
 }
 
 fetch('/api/sessions')
@@ -12,7 +12,6 @@ fetch('/api/sessions')
 })
 
 if (typeof state.loggedInUserEmail === 'string') {
-  console.log("running fetch for API")
   let data = `{ "userEmail" : "${state.loggedInUserEmail}" }`
 
   fetch('/api/transactions', {
@@ -22,8 +21,6 @@ if (typeof state.loggedInUserEmail === 'string') {
   })
     .then(res => res.json())
     .then(transactions => {
-      console.log("test")
       state.userTransactions = transactions
     })
 }
-
