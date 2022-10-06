@@ -17,6 +17,7 @@
     <script defer src="/js/components/transaction_history.js"></script>
     <script defer src="/js/components/sign_up.js"></script>
     <script defer src="/js/components/login.js"></script>
+    <script defer src="/js/components/add_transaction.js"></script>
     <script defer src="/js/components/overview.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
@@ -25,6 +26,7 @@
   <h1>Budget Tracker</h1>
   <nav class="header-nav">
     <ul>
+      <li onClick="renderAddTransaction()">Add Transaction</li>
       <li onClick="renderTransactionHistory()">Transaction History</li>
       <li onClick="renderEditTransaction()">Edit Transaction</li>
       <li onClick="renderSignUp()">Sign Up</li>
