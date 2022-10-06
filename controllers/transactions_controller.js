@@ -15,7 +15,6 @@ router.post('/user', (req, res) => {
   console.log('dfghstest')
 
   const { userEmail } = req.body
-  console.log(`userEmail: ${userEmail}`)
 
   User
     .findByEmail(userEmail)
