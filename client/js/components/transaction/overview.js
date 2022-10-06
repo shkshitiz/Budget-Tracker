@@ -2,7 +2,9 @@ google.charts.load('current', {'packages':['corechart']});
 
 function renderTransactionOverview() {
   document.querySelector('#page').innerHTML = `
-    <div id="piechart"></div>
+  <h1>Hi there, user!</h1>  
+  <p>Your budget overview for this month:</p>
+  <div id="piechart"></div>
   `
   drawChart()
   // Draw the chart and set the chart values
