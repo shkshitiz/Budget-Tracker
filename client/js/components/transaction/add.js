@@ -3,6 +3,8 @@ function renderTransactionAdd() {
     <section class='create-transaction'>
       <form onSubmit="createTransaction(event)">
         <h2>Add transaction</h2>
+        <input type="hidden" name="userEmail" value="${state.loggedInUserEmail}">
+
         <fieldset>
           <label for="">Name: </label>
           <input type="text" name="name">
@@ -20,7 +22,7 @@ function renderTransactionAdd() {
 
         <fieldset>
           <label for="">Date paid: </label>
-          <input type="date" name="Date">
+          <input type="date" name="date">
         </fieldset>
 
         <button>Add Transaction</button>
@@ -41,16 +43,7 @@ function createTransaction(event) {
   })
     .then(res => res.json())
     .then(transaction => {
-      state.transactions.push(transaction)
-      renderTransactionHistory()
+      state.userTransactions.push(transaction)
+      renderTransactionManager()
     })
 }
-
-// function test(event) {
-//   event.preventDefault()
-//   const form = event.target
-
-//   // takes data from the form html tag and converts it into an object literal.
-//   const data = Object.fromEntries(new FormData(form))
-//   console.log(JSON.stringify(data))
-// }

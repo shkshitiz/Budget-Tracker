@@ -102,12 +102,12 @@ function renderTransactionListExpenses() {
                         <div class="tracked-item-title">${(ts.amount > 0 ? '+' : '-')} $${Math.abs(ts.amount)} - ${ts.name}</div>
                         <div class="tracked-item-content" hidden>${ts.description}</div>
                     </div>
-                    <div class="edit" onClick="editTransaction(event)">Edit</div>
+                    <div class="edit" onClick="renderTransactionEdit(${ts.id})">Edit</div>
                     <div class="delete" onClick="deleteTransaction(event)">Delete</div>
                 </div>
             `
         })
-    return expense
+    return expense.join('')
 }
 
 function renderTransactionListIncomes() {
@@ -137,12 +137,12 @@ function renderTransactionListIncomes() {
                         <div class="tracked-item-title">${(ts.amount > 0 ? '+' : '-')} $${Math.abs(ts.amount)} - ${ts.name}</div>
                         <div class="tracked-item-content" hidden>${ts.description}</div>
                     </div>
-                    <div>Edit</div>
-                    <div>Delete</div>
+                    <div class="edit" onClick="renderTransactionEdit(${ts.id})">Edit</div>
+                    <div class="delete" onClick="deleteTransaction(event)">Delete</div>
                 </div>
             `
         })
-    return incomes
+    return incomes.join('')
 }
 
 function renderTransactionListManager() {
@@ -151,17 +151,20 @@ function renderTransactionListManager() {
     
 }
 
-function editTransaction(event) {
-  const editBtn = event.target
-  const transactionDOM = editBtn.closest('.tracked-item')
-  const transactionId = transactionDOM.dataset.id
-  console.log(transactionId)
+// function editTransaction(event) {
+//   const editBtn = event.target
+//   const transactionDOM = editBtn.closest('.tracked-item')
+//   const transactionId = transactionDOM.dataset.id
+//   console.log(transactionId)
 
 
-  fetch(`/api/transactions/${transactionId}`, {
-    method: 'GET'
-  })
-}
+//   fetch(`/api/transactions/${transactionId}`, {
+//     method: 'PUT'
+//   })
+//     .then(() =>{
+      
+//     })
+// }
 
 function deleteTransaction(event) {
   const deleteBtn = event.target
