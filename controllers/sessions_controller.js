@@ -25,12 +25,13 @@ router.post('/', (req, res) => {
         res.status(400).json({ error: 'email and/or password cannot be blank'})
       } else {
         const isValidPassword = bcrypt.compareSync(password, user.password_digest)
-
-      if (user && isValidPassword) {
-        // log the user in
-        req.session.userId = user.id
-        res.json(user.email)
-      }
+        if (user && isValidPassword) {
+          // log the user in
+          req.session.userId = user.id
+          res.json(user)
+        } else {
+          res.status(403).json({ error: 'email and/or password are incorrect'})
+        }
       }
     })
 })
