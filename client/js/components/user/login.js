@@ -37,6 +37,7 @@ function login(event) {
       } else {
         state.loggedInUserEmail = res.email
         state.loggedInUsername = res.username
+        renderNav()
         renderTransactionOverview()
         console.log('logged in')
       }

@@ -11,6 +11,15 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.nav-desktop {
+  width: 90vw;
+}
+
+.nav-desktop a {
+  text-align: center;
+  width: auto;
+}
+
 .center-dialog {
   height: 40vh;
 }
@@ -22,15 +31,6 @@ body {
 .card-body input {
   margin: 10px auto;
   display: block;
-}
-
-.navbar-nav {
-  display: grid;
-  grid-template-columns: repeat(11, 1fr);
-}
-
-.navbar-nav a {
-  text-align: center;
 }
 
 .material-icons {
