@@ -11,6 +11,10 @@ body {
     font-family: 'Montserrat';
 }
 
+.content {
+  width: 80vw;
+}
+
 #nav>h1 {
   margin-top: 1rem;
 }
@@ -36,3 +40,25 @@ body {
   cursor: pointer;
 }
 
+footer {
+  text-align: center;
+  position: relative;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+footer > p {
+  margin-bottom: 0.25em;
+  font-size: 1em;
+}
+
+#main-page {
+  height: 90vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
