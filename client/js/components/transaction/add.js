@@ -25,7 +25,7 @@ function renderTransactionAdd() {
           <input type="date" name="date">
         </fieldset>
 
-        <button>Add Transaction</button>
+        <button class="btn btn-primary">Add Transaction</button>
       </form>
     </section>
   `
