@@ -7,12 +7,12 @@ const User = require('../models/user')
 
 router.get('/', (req, res) => {
   if (req.session.userId) {
-    console.log("Grabbing user data")
+    // console.log("Grabbing user data")
     User
       .findById(req.session.userId)
       .then(userData => {
-        console.log("found user data")
-        console.log(userData)
+        // console.log("found user data")
+        // console.log(userData)
         delete userData.password_digest
         res.json(userData)
       })
@@ -32,10 +32,10 @@ router.post('/', (req, res) => {
       } else if (typeof user === 'undefined') {
         res.status(400).json({ error: 'unable to find user'})
       } else {
-        console.log("user data?")
-        console.log(user)
+        // console.log("user data?")
+        // console.log(user)
         const isValidPassword = bcrypt.compareSync(password, user.password_digest)
-        
+
         if (user && isValidPassword) {
           // log the user in
           req.session.userId = user.id
