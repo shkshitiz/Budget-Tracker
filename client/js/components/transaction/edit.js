@@ -5,7 +5,7 @@ function renderTransactionEdit(itemId) {
       let dateToUpdate = new Date(transaction.date)
 
       document.querySelector('#page').innerHTML = `
-        <main>
+        <main class="edit_add">
           <form onSubmit="updateTransaction(event)">
             <h2>Edit Transaction</h2>
             <input type="hidden" name="id" value="${transaction.id}">
@@ -29,7 +29,7 @@ function renderTransactionEdit(itemId) {
               <input type="date" name="date" value="${dateToUpdate.toISOString().slice(0, 10)}">
             </fieldset>
 
-            <button>Save</button>
+            <button class="btn btn-primary">Save</button>
           </form>
         </main>
       `
