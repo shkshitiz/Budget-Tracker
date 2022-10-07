@@ -1,5 +1,5 @@
 
-.mobile-nav {
+.sticky-nav {
   display: none;
 }
 
@@ -12,7 +12,7 @@
     display: none;
   }
 
-  .mobile-nav {
+  .sticky-nav {
     bottom: 0;
     display: block;
     background-color: lightgreen;
