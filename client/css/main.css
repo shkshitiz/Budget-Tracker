@@ -3,34 +3,25 @@
 }
 
 body {
-    background-color: rgb(255, 255, 255);
-    color: #222;
-    margin: 0 auto;
-    width: 90vw;
+  background-color: white;
+  color: #222;
+  margin: 0 auto;
+  width: 90vw;
 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Montserrat';
+}
+
+.nav-desktop {
+  width: 90vw;
+}
+
+.nav-desktop a {
+  text-align: center;
+  width: auto;
 }
 
 .center-dialog {
   height: 40vh;
-}
-
-.card-body {
-  text-align: center;
-}
-
-.card-body input {
-  margin: 10px auto;
-  display: block;
-}
-
-.navbar-nav {
-  display: grid;
-  grid-template-columns: repeat(11, 1fr);
-}
-
-.navbar-nav a {
-  text-align: center;
 }
 
 .material-icons {
@@ -40,3 +31,4 @@ body {
 .material-icons:hover {
   cursor: pointer;
 }
+

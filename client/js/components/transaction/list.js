@@ -137,8 +137,8 @@ function renderTransactionListItems(itemData, ts) {
         <div class="tracked-item-title">${(ts.amount > 0 ? '+' : '-')} $${Math.abs(ts.amount)} - ${ts.name}</div>
         <div class="tracked-item-content" hidden>${ts.description}</div>
       </div>
-      <div class="edit" onClick="renderTransactionEdit(${ts.id})">Edit</div>
-      <div class="delete" onClick="deleteTransaction(${ts.id})">Delete</div>
+      <div class="material-symbols-outlined edit" onClick="renderTransactionEdit(${ts.id})">Edit</div>
+      <div class="material-symbols-outlined delete" onClick="deleteTransaction(${ts.id})">Delete</div>
     </div>
   `
 }

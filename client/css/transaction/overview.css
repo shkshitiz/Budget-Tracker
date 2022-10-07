@@ -1,0 +1,25 @@
+#piechart {
+  display: flex;
+  justify-content: center;
+}
+
+#piechart > svg {
+  display: none;
+}
+
+.card-body {
+  text-align: center;
+  translate: 0px 5em;
+}
+
+.card-body input {
+  margin: 10px auto;
+  display: block;
+}
+
+@media only screen and (max-width: 768px) {
+  .overview h1, .overview p {
+    text-align: right;
+    width: 80%;
+  }
+}
