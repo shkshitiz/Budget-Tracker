@@ -1,0 +1,9 @@
+.create-transaction form h2 {
+  padding: 50px;
+}
+
+.create-transaction form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
