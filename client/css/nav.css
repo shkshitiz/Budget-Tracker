@@ -20,12 +20,14 @@
   }
 
   .sticky-nav-text {
-    font-size: 7vmin;
+    font-size: 6vmin;
     text-align: center;
     color: whitesmoke;
+    transition: color 0.2s;
   }
 
   .sticky-nav-text:hover {
+    
     cursor: pointer;
   }
 }

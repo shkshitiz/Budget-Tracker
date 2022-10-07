@@ -1,7 +1,7 @@
 
 
 function renderMobileNavMenu() {
-  if (typeof loggedInUserEmail === 'string') {
+  if (typeof state.loggedInUserEmail === 'string') {
     document.querySelector('#mobile-nav').classList.add('sticky-nav')
     document.querySelector('#mobile-nav').innerHTML = `
       <div class="container-fluid">
