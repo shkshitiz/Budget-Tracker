@@ -1,4 +1,16 @@
 
+
+
+.nav-link {
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: #D64550;
+  cursor: pointer;
+}
+
+
 .sticky-nav {
   display: none;
 }
@@ -41,7 +53,7 @@
 
   .sticky-nav-text {
     margin: auto 0;
-    padding-top: 15%;
+    padding-top: 25px;
     font-size: 5vmin;
     text-align: center;
     color: whitesmoke;
