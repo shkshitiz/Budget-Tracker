@@ -15,7 +15,23 @@
   .sticky-nav {
     bottom: 0;
     display: block;
-    background-color: lightgreen;
-    height: 200px;
+    background-color: #808080;
+    height: 10vh;
+  }
+
+  .sticky-nav-text {
+    font-size: 7vmin;
+    text-align: center;
+    color: whitesmoke;
+  }
+
+  .sticky-nav-text:hover {
+    cursor: pointer;
   }
 }
+
+/* @media screen and (max-width: 576px) {
+  .sticky-nav-text {
+    font-size: 5vmin;
+  }
+} */

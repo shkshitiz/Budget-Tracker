@@ -65,7 +65,9 @@
   <main id="page" class="content"></main>
   <div id="mobile-nav" class="sticky-nav navbar fixed-bottom navbar-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Fixed bottom</a>
+      <div class="col navbar-text sticky-nav-text" onclick="renderTransactionOverview()">Overview</div>
+      <div class="col navbar-text sticky-nav-text" onclick="renderTransactionManager()">Manager</div>
+      <div class="col navbar-text sticky-nav-text" onclick="renderTransactionHistory()">History</div>
     </div>
   </div>
 </body>
