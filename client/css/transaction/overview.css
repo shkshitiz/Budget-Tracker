@@ -3,6 +3,10 @@
   justify-content: center;
 }
 
+#piechart > svg {
+  display: none;
+}
+
 .card-body {
   text-align: center;
   translate: 0px 5em;

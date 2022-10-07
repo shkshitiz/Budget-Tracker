@@ -17,17 +17,38 @@
     display: block;
     background-color: #808080;
     height: 10vh;
+    padding: 0;
   }
 
-  .sticky-nav-text {
-    font-size: 6vmin;
-    text-align: center;
-    color: whitesmoke;
+  .sticky-nav > .container-fluid {
+    padding: 0;
+    height: 100%;
+  }
+
+  .sticky-nav-text-box {
+    padding: 0;
+    height: inherit;
     transition: color 0.2s;
   }
 
+  .sticky-nav-text-box:first-child {
+    background-color: #1C2826;
+  }
+
+  .sticky-nav-text-box:last-child {
+    background-color: #3F612D;
+  }
+
+  .sticky-nav-text {
+    margin: auto 0;
+    padding-top: 15%;
+    font-size: 5vmin;
+    text-align: center;
+    color: whitesmoke;
+  }
+
   .sticky-nav-text:hover {
-    
+    color: #D64550;
     cursor: pointer;
   }
 }

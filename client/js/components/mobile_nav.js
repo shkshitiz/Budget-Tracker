@@ -5,9 +5,9 @@ function renderMobileNavMenu() {
     document.querySelector('#mobile-nav').classList.add('sticky-nav')
     document.querySelector('#mobile-nav').innerHTML = `
       <div class="container-fluid">
-        <div class="col navbar-text sticky-nav-text" onclick="renderTransactionOverview()">Overview</div>
-        <div class="col navbar-text sticky-nav-text" onclick="renderTransactionManager()">Manager</div>
-        <div class="col navbar-text sticky-nav-text" onclick="renderTransactionHistory()">History</div>
+        <div class="col navbar-text sticky-nav-text-box" onclick="renderTransactionOverview()"><div class="sticky-nav-text">Overview</div></div>
+        <div class="col navbar-text sticky-nav-text-box" onclick="renderTransactionManager()"><div class="sticky-nav-text">Manager</div></div>
+        <div class="col navbar-text sticky-nav-text-box" onclick="renderTransactionHistory()"><div class="sticky-nav-text">History</div></div>
       </div>
     `
   } else {
