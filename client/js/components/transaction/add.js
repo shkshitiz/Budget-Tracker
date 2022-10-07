@@ -22,7 +22,7 @@ function renderTransactionAdd() {
 
         <fieldset>
           <label for="">Date paid: </label>
-          <input type="date" name="date">
+          <input type="date" name="date" value="${state.currentDate.toISOString().slice(0, 10)}">
         </fieldset>
 
         <button class="btn btn-primary">Add Transaction</button>
