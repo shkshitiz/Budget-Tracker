@@ -38,7 +38,6 @@ function login(event) {
         state.loggedInUserEmail = res.email
         state.loggedInUsername = res.username
         let data = `{ "userEmail" : "${state.loggedInUserEmail}" }`
-        console.log(data)
 
         fetch('/api/transactions/user', {
           method: 'POST',
@@ -48,11 +47,9 @@ function login(event) {
           .then(res => res.json())
           .then(transactions => {
             state.userTransactions = transactions
-            console.log(transactions)
+            renderTransactionOverview()
           })
-          console.log(res)
-          renderTransactionOverview()
-          console.log('logged in')
+          
       }
     })
 }

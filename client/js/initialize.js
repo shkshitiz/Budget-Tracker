@@ -1,7 +1,7 @@
 const state = {
   userTransactions: [],
   loggedInUserEmail: null,
-  currentDate: new Date('2022-10-06'),
+  currentDate: new Date(),
   loggedInUsername: null
 }
 
@@ -15,7 +15,6 @@ fetch('/api/sessions')
 
 if (typeof state.loggedInUserEmail === 'string') {
   let data = `{ "userEmail" : "${state.loggedInUserEmail}" }`
-  console.log(data)
 
   fetch('/api/transactions/user', {
     method: 'POST',
@@ -25,6 +24,5 @@ if (typeof state.loggedInUserEmail === 'string') {
     .then(res => res.json())
     .then(transactions => {
       state.userTransactions = transactions
-      console.log(transactions)
     })
 }
