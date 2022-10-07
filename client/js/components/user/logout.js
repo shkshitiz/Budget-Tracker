@@ -6,11 +6,10 @@ function invokeUserLogout() {
       alert("Failed to logout. Please try again.")
     } else {
       sessionStorage.clear()
-      const logout = document.getElementById('logoutBtn')
-      logout.classList.add('loggedOut')
+      document.getElementById("nav").innerHTML = ''
       state.loggedInUserEmail = null
       state.loggedInUsername = null
-      state.userTransactions = null
+      state.userTransactions = []
       state.username = null
       renderLandingPage()
     }
