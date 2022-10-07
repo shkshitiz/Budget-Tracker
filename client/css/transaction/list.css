@@ -78,6 +78,16 @@
   border-radius: 0.5em;
 }
 
+.edit, .delete {
+  align-self: center;
+}
+
+.future-expenses, .future-incomes {
+  margin: 2em 0;
+}
+
+
+
 
 
 /* Transaction Item colours */
