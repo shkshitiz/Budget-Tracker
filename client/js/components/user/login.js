@@ -50,7 +50,8 @@ function login(event) {
             state.userTransactions = transactions
             console.log(transactions)
           })
-          console.log(res)
+          //console.log(res)
+          renderNav()
           renderTransactionOverview()
           console.log('logged in')
       }

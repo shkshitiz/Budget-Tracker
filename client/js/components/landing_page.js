@@ -12,10 +12,10 @@ function renderLandingPage() {
     <div class="center-dialog d-flex align-items-center justify-content-center">
       <div class="card-body">
         <section class='gif'>
-          <img src="https://media3.giphy.com/media/f9qwUQW56qC7BeCfCM/200w.gif" alt="">
+          <img src="/images/giphy.gif" alt="">
         </section>
         <section class='main-logo'> 
-          <img src="https://i.imgur.com/1aor9pi.png" alt="">
+          <img src="/images/BudgetTracker.png" alt="">
         </section>
         <section class='options'>
           <button onclick="renderLogin()" class="btn btn-outline-primary">Login</button>

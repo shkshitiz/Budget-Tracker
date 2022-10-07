@@ -1,0 +1,16 @@
+.edit_add form h2{
+  padding: 50px;
+  text-align: center;
+}
+
+.edit_add form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
