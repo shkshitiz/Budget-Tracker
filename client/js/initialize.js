@@ -5,7 +5,9 @@ const state = {
   loggedInUsername: null
 }
 
-fetch('/api/sessions')
+fetch('/api/sessions', {
+  method: 'GET'
+})
 .then(res => res.json())
 .then(userData => {
   if (typeof userData.email === 'string') {
