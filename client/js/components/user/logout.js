@@ -10,7 +10,7 @@ function invokeUserLogout() {
       logout.classList.add('loggedOut')
       state.loggedInUserEmail = null
       state.loggedInUsername = null
-      state.userTransactions = null
+      state.userTransactions = []
       state.username = null
       renderLandingPage()
     }
