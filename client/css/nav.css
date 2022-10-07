@@ -1,0 +1,21 @@
+
+.mobile-nav {
+  display: none;
+}
+
+.header-nav {
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .header-nav {
+    display: none;
+  }
+
+  .mobile-nav {
+    bottom: 0;
+    display: block;
+    background-color: lightgreen;
+    height: 200px;
+  }
+}

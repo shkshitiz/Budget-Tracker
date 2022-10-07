@@ -6,8 +6,10 @@ function invokeUserLogout() {
       alert("Failed to logout. Please try again.")
     } else {
       const logout = document.getElementById('logoutBtn')
-      logout.classList.add('loggedOut')
+      document.getElementById("nav").innerHTML = ''
       state.loggedInUserName = null
+      state.loggedInUserEmail = null
+      renderLandingPage()
     }
   })
 }
