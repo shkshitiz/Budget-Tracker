@@ -1,7 +1,7 @@
 function renderNav() {
   document.getElementById("nav").innerHTML = `
   <h1>Budget Tracker</h1>
-  <nav class="navbar navbar-expand-lg bg-light d-none d-sm-none d-md-none d-lg-block">
+  <nav class="navbar navbar-expand-md bg-light d-none d-sm-none d-md-block">
     <div class="container-fluid">
       <button
         class="navbar-toggler"

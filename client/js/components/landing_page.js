@@ -1,12 +1,4 @@
 
-// This determines what a user sees when they first arrive at the page
-// Depending on if they are logged in or not
-if (typeof state.loggedInUserEmail !== 'string') {
-  renderLandingPage()
-} else {
-  renderTransactionOverview()
-}
-
 function renderLandingPage() {
   document.querySelector('#page').innerHTML = `
     <div class="center-dialog d-flex align-items-center justify-content-center">

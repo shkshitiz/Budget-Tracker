@@ -3,10 +3,10 @@
 }
 
 body {
-    background-color: rgb(255, 255, 255);
-    color: #222;
-    margin: 0 auto;
-    width: 90vw;
+  background-color: white;
+  color: #222;
+  margin: 0 auto;
+  width: 90vw;
 
     font-family: 'Montserrat';
 }
@@ -22,15 +22,6 @@ body {
 
 .center-dialog {
   height: 40vh;
-}
-
-.card-body {
-  text-align: center;
-}
-
-.card-body input {
-  margin: 10px auto;
-  display: block;
 }
 
 .material-icons {

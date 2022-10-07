@@ -7,22 +7,27 @@ const state = {
 
 fetch('/api/sessions')
 .then(res => res.json())
-.then(email => {
-  if (typeof email === 'string') {
-    state.loggedInUserEmail = email
+.then(userData => {
+  if (typeof userData.email === 'string') {
+    state.loggedInUserEmail = userData.email
+    state.loggedInUsername = userData.username
+    console.log("logged in, loading session data")
+
+    renderNav()
+    renderMobileNavMenu()
+
+    let data = `{ "userEmail" : "${userData.email}" }`
+
+    fetch('/api/transactions/user', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: data
+    })
+      .then(res => res.json())
+      .then(transactions => {
+        state.userTransactions = transactions
+        renderTransactionOverview()
+        console.log("logged in, loading user's transaction data")
+      })
   }
 })
-
-if (typeof state.loggedInUserEmail === 'string') {
-  let data = `{ "userEmail" : "${state.loggedInUserEmail}" }`
-
-  fetch('/api/transactions/user', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: data
-  })
-    .then(res => res.json())
-    .then(transactions => {
-      state.userTransactions = transactions
-    })
-}

@@ -1,5 +1,5 @@
 
-.mobile-nav {
+.sticky-nav {
   display: none;
 }
 
@@ -12,10 +12,49 @@
     display: none;
   }
 
-  .mobile-nav {
+  .sticky-nav {
     bottom: 0;
     display: block;
-    background-color: lightgreen;
-    height: 200px;
+    background-color: #808080;
+    height: 10vh;
+    padding: 0;
+  }
+
+  .sticky-nav > .container-fluid {
+    padding: 0;
+    height: 100%;
+  }
+
+  .sticky-nav-text-box {
+    padding: 0;
+    height: inherit;
+    transition: color 0.2s;
+  }
+
+  .sticky-nav-text-box:first-child {
+    background-color: #1C2826;
+  }
+
+  .sticky-nav-text-box:last-child {
+    background-color: #3F612D;
+  }
+
+  .sticky-nav-text {
+    margin: auto 0;
+    padding-top: 15%;
+    font-size: 5vmin;
+    text-align: center;
+    color: whitesmoke;
+  }
+
+  .sticky-nav-text:hover {
+    color: #D64550;
+    cursor: pointer;
   }
 }
+
+/* @media screen and (max-width: 576px) {
+  .sticky-nav-text {
+    font-size: 5vmin;
+  }
+} */

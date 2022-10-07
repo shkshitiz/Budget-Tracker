@@ -12,6 +12,7 @@ function invokeUserLogout() {
       state.userTransactions = []
       state.username = null
       renderLandingPage()
+      renderMobileNavMenu()
     }
   })
 }

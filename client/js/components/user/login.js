@@ -48,6 +48,7 @@ function login(event) {
           .then(transactions => {
             state.userTransactions = transactions
             renderNav()
+            renderMobileNavMenu()
             renderTransactionOverview()
             console.log('logged in')
           })
