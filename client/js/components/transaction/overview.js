@@ -15,7 +15,10 @@ function renderTransactionOverview() {
   drawChart()
   // Draw the chart and set the chart values
 
-  function drawChart() {  
+  function drawChart() {
+    console.log(state.userTransactions)
+    console.log(typeof state.userTransactions)
+
     var transactionDemoAmounts = state.userTransactions.map(transaction => {
       return transaction.amount      
     })
@@ -53,9 +56,8 @@ function renderTransactionOverview() {
 
     // Extension: Category
     // dataTable.push(['insurance', 500])
-
+    console.log(typeof google)
     var data = google.visualization.arrayToDataTable(dataTable);
-  
   
   
     // Optional; add a title and set the width and height of the chart
