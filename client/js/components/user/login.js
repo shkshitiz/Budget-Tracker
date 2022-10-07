@@ -47,9 +47,10 @@ function login(event) {
           .then(res => res.json())
           .then(transactions => {
             state.userTransactions = transactions
+            renderNav()
             renderTransactionOverview()
+            console.log('logged in')
           })
-          
       }
     })
 }
