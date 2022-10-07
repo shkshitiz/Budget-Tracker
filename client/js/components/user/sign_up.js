@@ -31,7 +31,6 @@ function createUser(event){
   })
     .then(res => res.json())
     .then(userName => {
-      state.loggedInUserName = userName
       renderLogin()
     })
 }
