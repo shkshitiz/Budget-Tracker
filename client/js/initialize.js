@@ -7,9 +7,10 @@ const state = {
 
 fetch('/api/sessions')
 .then(res => res.json())
-.then(email => {
-  if (typeof email === 'string') {
-    state.loggedInUserEmail = email
+.then(userData => {
+  if (typeof userData.email === 'string') {
+    state.loggedInUserEmail = userData.email
+    state.loggedInUsername = userData.username
   }
 })
 

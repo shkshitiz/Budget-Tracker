@@ -9,7 +9,10 @@ router.get('/', (req, res) => {
   if (req.session.userId) {
     User
       .findById(req.session.userId)
-      .then(email => res.json(email))
+      .then(userData => {
+        delete userData.password_digest
+        res.json(userData)
+      })
   } else {
     res.json({ error: 'no one logged in' })
   }
