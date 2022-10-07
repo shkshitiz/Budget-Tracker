@@ -1,7 +1,7 @@
 const state = {
   userTransactions: [],
   loggedInUserEmail: null,
-  currentDate: new Date('2022-10-06'),
+  currentDate: new Date(),
   loggedInUsername: null
 }
 
