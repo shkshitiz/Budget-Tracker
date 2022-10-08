@@ -28,9 +28,9 @@ router.post('/', (req, res) => {
     .findByEmail(email)
     .then(user => {
       if (email == "" || password == "") {
-        res.status(400).json({ error: 'email and/or password cannot be blank'})
+        res.status(400).json({ error: 'email and/or password cannot be blank' })
       } else if (typeof user === 'undefined') {
-        res.status(400).json({ error: 'unable to find user'})
+        res.status(400).json({ error: 'unable to find user' })``
       } else {
         // console.log("user data?")
         // console.log(user)
@@ -41,7 +41,7 @@ router.post('/', (req, res) => {
           req.session.userId = user.id
           res.json(user)
         } else {
-          res.status(403).json({ error: 'email and/or password are incorrect'})
+          res.status(403).json({ error: 'email and/or password are incorrect' })
         }
       }
     })
