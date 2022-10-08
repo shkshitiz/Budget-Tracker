@@ -30,7 +30,12 @@ function createUser(event){
     body: JSON.stringify(data)
   })
     .then(res => res.json())
-    .then(userName => {
-      renderLogin()
+    .then(res => {
+      console.log(res)
+      if (res.error) {
+        renderError(res.error)
+      } else {
+        renderLogin()
+      }
     })
 }
