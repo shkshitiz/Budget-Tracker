@@ -4,7 +4,9 @@ const colourClassOptions = [
   'item-style-red',
   'item-style-blue',
   'item-style-brown',
-  'item-style-yellow'
+  'item-style-yellow',
+  'item-style-turquoise',
+  'item-style-dark-green'
 ]
 
 function renderList(page) {
