@@ -34,18 +34,23 @@ router.post('/', (req, res) => {
   const { userEmail, name, date, amount, description } = req.body
 
   // completely empty, do not even bother doing networking
-  if (userEmail == '' && name == '' && date == '' && amount == '' &&  description == '') {
+  if (userEmail == '') {
+    res.status(401).json({ error: 'user is not logged in, not allowed to add transactions' })
+  } else if (
+    name == '' &&
+    date == '' &&
+    amount == '' &&
+    description == ''
+  ) {
     res.status(400).json({ error: 'no data inputed, please fill out the form' })
-  } else if (userEmail != '' || name != '' || date != '' || amount != '') {
+  } else if (name != '' || date != '' || amount != '') {
     // if there are at least some input, check if they are ideal
-    if (userEmail == '') {
-      res.status(401).json({ error: 'user is not logged in, not allowed to add transactions' })
-    } else if (name == '') {
+    if (name == '') {
       res.status(400).json({ error: 'please add a title to the transaction' })
-    } else if (date == '') {
-      res.status(400).json({ error: 'please add a date to the transaction' })
     } else if (amount == '') {
       res.status(400).json({ error: 'please input amount that this transaction will occur' })
+    } else if (date == '') {
+      res.status(400).json({ error: 'please add a date to the transaction' })
     } else {
       // all data is inputted and the user may safely input data into the database
       User
@@ -57,7 +62,7 @@ router.post('/', (req, res) => {
       })
     }
   } else {
-    res.status(400).json({ error: 'incorrect amount of data has been inputted. Please make sure the name/date/amount fields are filled in.' })
+    res.status(400).json({ error: 'please fill in the rest of the form' })
   }
 })
 
@@ -72,16 +77,27 @@ router.put('/:id', (req, res) => {
   const { name, date, amount, description } = req.body
 
   // completely empty, do not even bother doing networking
-  if (name == '' && date == '' && amount == '' &&  description == '') {
+  if (req.params.id == '') {
+    res.status(401).json({ error: 'user is not logged in, not allowed to add transactions' })
+  } else if (
+    name == ''&&
+    date == '' &&
+    amount == '' &&
+    description == ''
+  ) {
     res.status(400).json({ error: 'no data inputed, please fill out the form' })
-  } else if (name != '' || date != '' || amount != '') {
+  } else if (
+    name != '' ||
+    date != '' ||
+    amount != ''
+  ) {
     // if there are at least some input, check if they are ideal
     if (name == '') {
       res.status(400).json({ error: 'please add a title to the transaction' })
-    } else if (date == '') {
-      res.status(400).json({ error: 'please add a date to the transaction' })
     } else if (amount == '') {
       res.status(400).json({ error: 'please input amount that this transaction will occur' })
+    } else if (date == '') {
+      res.status(400).json({ error: 'please add a date to the transaction' })
     } else {
       // all data is inputted and the user may safely input data into the database
       Transaction
