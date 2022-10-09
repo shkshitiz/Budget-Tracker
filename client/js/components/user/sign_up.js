@@ -31,7 +31,7 @@ function createUser(event){
   })
     .then(res => res.json())
     .then(res => {
-      console.log(res)
+      // console.log(res)
       if (res.error) {
         renderError(res.error)
       } else {
