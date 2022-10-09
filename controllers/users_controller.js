@@ -25,11 +25,11 @@ router.post('/', (req, res) => {
       }
     })
   }
-  const passwordDigest = bcrypt.hashSync(password, bcrypt.genSaltSync(10), null)
+  // const passwordDigest = bcrypt.hashSync(password, bcrypt.genSaltSync(10), null)
 
-  User
-    .create(username, email, passwordDigest)
-    .then(username => res.json(username))
+  // User
+  //   .create(username, email, passwordDigest)
+  //   .then(username => res.json(username))
 })
 
 module.exports = router 
