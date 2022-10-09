@@ -50,7 +50,7 @@ function renderTransactionOverview() {
       var dataTable = [
         ['Task', 'Hours per Day'],
         ['Expenses', userExpenses],
-        ['Budget', leftoverBudget]
+        ['Unspent Income', leftoverBudget]
       ]
     }
 
