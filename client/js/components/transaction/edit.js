@@ -47,16 +47,20 @@ function updateTransaction(event) {
     body: JSON.stringify(data)
   })
     .then(res => res.json())
-    .then(updatedTransaction => {
-      state.userTransactions = state.userTransactions
-        .map(transaction => {
-          // console.log(`${transaction.id} vs ${updatedTransaction.id}`)
-          if (transaction.id === updatedTransaction.id) {
-            return updatedTransaction
-          } else {
-            return transaction
-          }
-        })
-      renderTransactionManager()
+    .then(res => {
+      if (res.error) {
+        renderError(res.error)
+      } else {
+        state.userTransactions = state.userTransactions
+          .map(transaction => {
+            // console.log(`${transaction.id} vs ${res.id}`)
+            if (transaction.id === res.id) {
+              return res
+            } else {
+              return transaction
+            }
+          })
+        renderTransactionManager()
+      }
     })
 }
