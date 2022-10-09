@@ -30,7 +30,7 @@ router.post('/', (req, res) => {
       if (email == "" || password == "") {
         res.status(400).json({ error: 'email and/or password cannot be blank' })
       } else if (typeof user === 'undefined') {
-        res.status(400).json({ error: 'unable to find user' })``
+        res.status(400).json({ error: 'unable to find user' })
       } else {
         // console.log("user data?")
         // console.log(user)
