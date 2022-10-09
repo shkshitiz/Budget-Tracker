@@ -5,7 +5,7 @@ function renderTransactionEdit(itemId) {
       let dateToUpdate = new Date(transaction.date)
 
       document.querySelector('#page').innerHTML = `
-        <main>
+        <main class="edit_add">
           <form onSubmit="updateTransaction(event)">
             <h2>Edit Transaction</h2>
             <input type="hidden" name="id" value="${transaction.id}">
@@ -29,7 +29,7 @@ function renderTransactionEdit(itemId) {
               <input type="date" name="date" value="${dateToUpdate.toISOString().slice(0, 10)}">
             </fieldset>
 
-            <button>Save</button>
+            <button class="btn btn-primary">Save</button>
           </form>
         </main>
       `
@@ -47,16 +47,20 @@ function updateTransaction(event) {
     body: JSON.stringify(data)
   })
     .then(res => res.json())
-    .then(updatedTransaction => {
-      state.userTransactions = state.userTransactions
-        .map(transaction => {
-          // console.log(`${transaction.id} vs ${updatedTransaction.id}`)
-          if (transaction.id === updatedTransaction.id) {
-            return updatedTransaction
-          } else {
-            return transaction
-          }
-        })
-      renderTransactionManager()
+    .then(res => {
+      if (res.error) {
+        renderError(res.error, '.edit_add')
+      } else {
+        state.userTransactions = state.userTransactions
+          .map(transaction => {
+            // console.log(`${transaction.id} vs ${res.id}`)
+            if (transaction.id === res.id) {
+              return res
+            } else {
+              return transaction
+            }
+          })
+        renderTransactionManager()
+      }
     })
 }

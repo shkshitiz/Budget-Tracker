@@ -2,15 +2,23 @@ function renderLogin() {
   document.querySelector('#page').innerHTML = `
   <div class="center-dialog d-flex align-items-center justify-content-center">
     <div class="card-body">
-      <section class='main-logo'> 
-      <img src="https://i.imgur.com/1aor9pi.png" alt="">
-      <h3>Login</h3>
-      </section>
-      <form onSubmit="login(event)">
-        <input type="text" placeholder="Email" name="email" />
-        <input type="password" placeholder="Password" name="password" />
-        <button class="btn btn-primary">Log in</button>
-      </form>
+      <div class='main-logo'> 
+        <img src="https://i.imgur.com/1aor9pi.png" alt="">
+        <h3>Login</h3>
+      </div>
+      <div class="log-in-form">
+        <form onSubmit="login(event)" class="form-control-sm">
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="emailInput" placeholder="name@example.com" name="email">
+            <label for="emailInput">Email address</label>
+          </div>
+          <div class="form-floating mb-5">
+            <input type="password" class="form-control" id="passwordInput" placeholder="password" name="password">
+            <label for="passwordInput">Password</label>
+          </div>
+          <button class="btn btn-primary">Log in</button>
+        </form>
+      </div>
       <i onClick="renderLandingPage()" class="material-icons">arrow_back</i>
     </div>
   </div>
@@ -33,18 +41,25 @@ function login(event) {
     .then(res => {
       if (res.error) {
         renderLogin()
-        renderError(res.error)
+        renderError(res.error, '.log-in-form')
       } else {
         state.loggedInUserEmail = res.email
         state.loggedInUsername = res.username
-        renderTransactionOverview()
-        console.log('logged in')
+        let data = `{ "userEmail" : "${state.loggedInUserEmail}" }`
+
+        fetch('/api/transactions/user', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: data
+        })
+          .then(res => res.json())
+          .then(transactions => {
+            state.userTransactions = transactions
+            renderNav()
+            renderMobileNavMenu()
+            renderTransactionOverview()
+            console.log('logged in')
+          })
       }
     })
-}
-
-function renderError(errorMessage) {
-  const page = document.querySelector('#page')
-  page.innerHTML = 
-    `<h2 style='color: red; font-size: 15px'>${errorMessage}</h2>` + page.innerHTML
 }

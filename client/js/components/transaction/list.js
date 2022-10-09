@@ -4,7 +4,9 @@ const colourClassOptions = [
   'item-style-red',
   'item-style-blue',
   'item-style-brown',
-  'item-style-yellow'
+  'item-style-yellow',
+  'item-style-turquoise',
+  'item-style-dark-green'
 ]
 
 function renderList(page) {
@@ -137,8 +139,8 @@ function renderTransactionListItems(itemData, ts) {
         <div class="tracked-item-title">${(ts.amount > 0 ? '+' : '-')} $${Math.abs(ts.amount)} - ${ts.name}</div>
         <div class="tracked-item-content" hidden>${ts.description}</div>
       </div>
-      <div class="edit" onClick="renderTransactionEdit(${ts.id})">Edit</div>
-      <div class="delete" onClick="deleteTransaction(${ts.id})">Delete</div>
+      <div class="material-symbols-outlined edit" onClick="renderTransactionEdit(${ts.id})">Edit</div>
+      <div class="material-symbols-outlined delete" onClick="deleteTransaction(${ts.id})">Delete</div>
     </div>
   `
 }
@@ -153,68 +155,3 @@ function deleteTransaction(transactionId) {
       renderTransactionManager()
     })
 }
-
-// let prototypeDatabaseDisplay = `
-//   <div class="tracked-item">
-//       <div class="tracked-item-date">5 Oct</div>
-//       <span class="tracked-item-divider"></span>
-//       <div class="tracked-item-info item-style-orange">
-//           <div class="tracked-item-title">- $420 - Unexpected Cost</div>
-//           <div class="tracked-item-content"></div>
-//       </div>
-//   </div>
-
-//   <div class="tracked-item">
-//       <div class="tracked-item-date">1 Oct</div>
-//       <span class="tracked-item-divider"></span>
-//       <div class="tracked-item-info item-style-blue">
-//           <div class="tracked-item-title">+ $60 - Dinner Pay-back</div>
-//           <div class="tracked-item-content"></div>
-//       </div>
-//   </div>
-
-//   <div class="tracked-item">
-//       <div class="tracked-item-date">1 Oct</div>
-//       <span class="tracked-item-divider"></span>
-//       <div class="tracked-item-info item-style-brown">
-//           <div class="tracked-item-title">- $150 - Takeaway</div>
-//           <div class="tracked-item-content"></div>
-//       </div>
-//   </div>
-
-//   <div class="tracked-item">
-//       <div class="tracked-item-date">29 Sep</div>
-//       <span class="tracked-item-divider"></span>
-//       <div class="tracked-item-info item-style-yellow">
-//           <div class="tracked-item-title">+ $1000 - Commission Work</div>
-//           <div class="tracked-item-content"></div>
-//       </div>
-//   </div>
-
-//   <div class="tracked-item">
-//       <div class="tracked-item-date">20 Sep</div>
-//       <span class="tracked-item-divider"></span>
-//       <div class="tracked-item-info item-style-red">
-//           <div class="tracked-item-title">- $300 - Rent</div>
-//           <div class="tracked-item-content"></div>
-//       </div>
-//   </div>
-
-//   <div class="tracked-item">
-//       <div class="tracked-item-date">10 Sep</div>
-//       <span class="tracked-item-divider"></span>
-//       <div class="tracked-item-info item-style-brown">
-//           <div class="tracked-item-title">- $300 - Food Shopping</div>
-//           <div class="tracked-item-content"></div>
-//       </div>
-//   </div>
-
-//   <div class="tracked-item">
-//       <div class="tracked-item-date">1 Sep</div>
-//       <span class="tracked-item-divider"></span>
-//       <div class="tracked-item-info item-style-blue">
-//           <div class="tracked-item-title">+ $1200 - Salary</div>
-//           <div class="tracked-item-content"></div>
-//       </div>
-//   </div>
-// `

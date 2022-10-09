@@ -7,9 +7,15 @@ const User = require('../models/user')
 
 router.get('/', (req, res) => {
   if (req.session.userId) {
+    // console.log("Grabbing user data")
     User
       .findById(req.session.userId)
-      .then(email => res.json(email))
+      .then(userData => {
+        // console.log("found user data")
+        // console.log(userData)
+        delete userData.password_digest
+        res.json(userData)
+      })
   } else {
     res.json({ error: 'no one logged in' })
   }
@@ -22,15 +28,20 @@ router.post('/', (req, res) => {
     .findByEmail(email)
     .then(user => {
       if (email == "" || password == "") {
-        res.status(400).json({ error: 'email and/or password cannot be blank'})
+        res.status(400).json({ error: 'email and/or password cannot be blank' })
+      } else if (typeof user === 'undefined') {
+        res.status(400).json({ error: 'unable to find user' })
       } else {
+        // console.log("user data?")
+        // console.log(user)
         const isValidPassword = bcrypt.compareSync(password, user.password_digest)
+
         if (user && isValidPassword) {
           // log the user in
           req.session.userId = user.id
           res.json(user)
         } else {
-          res.status(403).json({ error: 'email and/or password are incorrect'})
+          res.status(403).json({ error: 'email and/or password are incorrect' })
         }
       }
     })

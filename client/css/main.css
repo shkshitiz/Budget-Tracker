@@ -3,34 +3,33 @@
 }
 
 body {
-    background-color: rgb(255, 255, 255);
-    color: #222;
-    margin: 0 auto;
-    width: 90vw;
+  background-color: white;
+  color: #222;
+  margin: 0 auto;
+  width: 90vw;
 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Montserrat';
+}
+
+.content {
+  width: 80vw;
+}
+
+#nav>h1 {
+  margin-top: 1rem;
+}
+
+.nav-desktop {
+  width: 90vw;
+}
+
+.nav-desktop a {
+  text-align: center;
+  width: auto;
 }
 
 .center-dialog {
   height: 40vh;
-}
-
-.card-body {
-  text-align: center;
-}
-
-.card-body input {
-  margin: 10px auto;
-  display: block;
-}
-
-.navbar-nav {
-  display: grid;
-  grid-template-columns: repeat(11, 1fr);
-}
-
-.navbar-nav a {
-  text-align: center;
 }
 
 .material-icons {
@@ -39,4 +38,36 @@ body {
 
 .material-icons:hover {
   cursor: pointer;
+}
+
+footer {
+  text-align: center;
+  position: relative;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+footer > p {
+  margin-bottom: 0.25em;
+  font-size: 1em;
+}
+
+#main-page {
+  height: 90vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.alert > h2 {
+  margin: 0;
+  font-size: 1em;
+}
+
+.alert > svg {
+  width: 1em;
 }
