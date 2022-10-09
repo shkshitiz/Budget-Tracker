@@ -1,24 +1,39 @@
 function renderTransactionAdd() {
   document.querySelector('#page').innerHTML = `
     <section class='create-transaction'>
-      <form onSubmit="createTransaction(event)">
+      <form onSubmit="createTransaction(event)" class="form-control-sm">
         <h2>Add transaction</h2>
         <input type="hidden" name="userEmail" value="${state.loggedInUserEmail}">
 
-        <fieldset>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="nameInput" placeholder="Transaction Title" name="name">
+          <label for="nameInput">Name</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="number" class="form-control" id="amountInput" placeholder="Transaction Amount" name="amount">
+          <label for="amountInput">Amount</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="number" class="form-control" id="descriptionInput" placeholder="Transaction Description" name="description">
+          <label for="descriptionInput">Description</label>
+        </div>
+
+        <!-- <fieldset>
           <label for="">Name: </label>
           <input type="text" name="name" placeholder="Transaction name">
-        </fieldset>
+        </fieldset> -->
         
-        <fieldset>
+        <!-- <fieldset>
           <label for="">Amount: </label>
           <input type="number" name="amount" placeholder="0">
-        </fieldset>
+        </fieldset> -->
 
-        <fieldset>
+        <!-- <fieldset>
           <label for="">Description: </label>
           <input type="text" name="description" placeholder="Transaction Description">
-        </fieldset>
+        </fieldset> -->
 
         <fieldset>
           <label for="">Date paid: </label>
