@@ -49,7 +49,7 @@ function updateTransaction(event) {
     .then(res => res.json())
     .then(res => {
       if (res.error) {
-        renderError(res.error)
+        renderError(res.error, '.edit_add')
       } else {
         state.userTransactions = state.userTransactions
           .map(transaction => {

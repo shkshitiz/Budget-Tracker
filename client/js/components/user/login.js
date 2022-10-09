@@ -6,11 +6,13 @@ function renderLogin() {
       <img src="https://i.imgur.com/1aor9pi.png" alt="">
       <h3>Login</h3>
       </section>
-      <form onSubmit="login(event)">
-        <input type="text" placeholder="Email" name="email" />
-        <input type="password" placeholder="Password" name="password" />
-        <button class="btn btn-primary">Log in</button>
-      </form>
+      <div class="log-in-form">
+        <form onSubmit="login(event)">
+          <input type="text" placeholder="Email" name="email" />
+          <input type="password" placeholder="Password" name="password" />
+          <button class="btn btn-primary">Log in</button>
+        </form>
+      </div>
       <i onClick="renderLandingPage()" class="material-icons">arrow_back</i>
     </div>
   </div>
@@ -33,7 +35,7 @@ function login(event) {
     .then(res => {
       if (res.error) {
         renderLogin()
-        renderError(res.error)
+        renderError(res.error, '.log-in-form')
       } else {
         state.loggedInUserEmail = res.email
         state.loggedInUsername = res.username
@@ -54,10 +56,4 @@ function login(event) {
           })
       }
     })
-}
-
-function renderError(errorMessage) {
-  const page = document.querySelector('#page')
-  page.innerHTML = 
-    `<h2 style='color: red; font-size: 15px'>${errorMessage}</h2>` + page.innerHTML
 }

@@ -44,7 +44,7 @@ function createTransaction(event) {
     .then(res => res.json())
     .then(res => {
       if (res.error) {
-        renderError(res.error)
+        renderError(res.error, '.create-transaction')
       } else {
         state.userTransactions.push(res)
         // now that the data has been added, reload the manager page back in.
