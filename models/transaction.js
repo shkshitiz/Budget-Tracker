@@ -62,7 +62,7 @@ const Transaction = {
       .query(sql, [id])
       .then(dbRes => {
         console.log("Transaction has been deleted")
-        // { "message": "Transaction has been deleted" }
+        return { "message": "Transaction has been deleted" }
       })
   },
 
