@@ -56,9 +56,3 @@ function createUser(event){
       }
     })
 }
-
-function renderError(errorMessage) {
-  const page = document.querySelector('#page')
-  page.innerHTML = 
-    `<h2 style='color: red; font-size: 15px'>${errorMessage}</h2>` + page.innerHTML
-}
