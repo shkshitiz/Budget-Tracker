@@ -1,29 +1,29 @@
 function renderTransactionAdd() {
   document.querySelector('#page').innerHTML = `
     <section class='create-transaction'>
-      <form onSubmit="createTransaction(event)">
+      <form onSubmit="createTransaction(event)" class="form-control-sm">
         <h2>Add transaction</h2>
         <input type="hidden" name="userEmail" value="${state.loggedInUserEmail}">
 
-        <fieldset>
-          <label for="">Name: </label>
-          <input type="text" name="name">
-        </fieldset>
-        
-        <fieldset>
-          <label for="">Amount: </label>
-          <input type="number" name="amount" value="0">
-        </fieldset>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="nameInput" placeholder="Transaction Title" name="name">
+          <label for="nameInput">Name</label>
+        </div>
 
-        <fieldset>
-          <label for="">Description: </label>
-          <input type="text" name="description">
-        </fieldset>
+        <div class="form-floating mb-3">
+          <input type="number" class="form-control" id="amountInput" placeholder="Transaction Amount" name="amount">
+          <label for="amountInput">Amount</label>
+        </div>
 
-        <fieldset>
-          <label for="">Date paid: </label>
-          <input type="date" name="date" value="${state.currentDate.toISOString().slice(0, 10)}">
-        </fieldset>
+        <div class="form-floating mb-3">
+          <textarea class="form-control" id="descriptionInput" placeholder="Transaction Description" name="description"></textarea>
+          <label for="descriptionInput">Description</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="date" class="form-control" id="dateInput" placeholder="10/10/2022" name="date">
+          <label for="dateInput">Date</label>
+        </div>
 
         <button class="btn btn-primary">Add Transaction</button>
       </form>
@@ -42,8 +42,13 @@ function createTransaction(event) {
     body: JSON.stringify(data)
   })
     .then(res => res.json())
-    .then(transaction => {
-      state.userTransactions.push(transaction)
-      renderTransactionManager()
+    .then(res => {
+      if (res.error) {
+        renderError(res.error, '.create-transaction')
+      } else {
+        state.userTransactions.push(res)
+        // now that the data has been added, reload the manager page back in.
+        renderTransactionManager()
+      }
     })
 }

@@ -16,8 +16,8 @@ function renderTransactionOverview() {
   // Draw the chart and set the chart values
 
   function drawChart() {
-    console.log(state.userTransactions)
-    console.log(typeof state.userTransactions)
+    // console.log(state.userTransactions)
+    // console.log(typeof state.userTransactions)
 
     var transactionDemoAmounts = state.userTransactions.map(transaction => {
       return transaction.amount      
@@ -30,14 +30,14 @@ function renderTransactionOverview() {
     }).reduce((total, num) => {
       return total + num
     }, 0)
-    console.log(userExpenses)
+    // console.log(userExpenses)
 
     const userIncome = transactionDemoAmounts.filter(num => {
       return num > 0
     }).reduce((total, num) => {
       return total + num
     }, 0)
-    console.log(userIncome)
+    // console.log(userIncome)
 
     const leftoverBudget = userIncome - userExpenses
 
@@ -50,13 +50,13 @@ function renderTransactionOverview() {
       var dataTable = [
         ['Task', 'Hours per Day'],
         ['Expenses', userExpenses],
-        ['Budget', leftoverBudget]
+        ['Unspent Income', leftoverBudget]
       ]
     }
 
     // Extension: Category
     // dataTable.push(['insurance', 500])
-    console.log(typeof google)
+    // console.log(typeof google)
     var data = google.visualization.arrayToDataTable(dataTable);
   
   

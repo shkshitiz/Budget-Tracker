@@ -11,10 +11,10 @@
   text-align: center;
 }
 
-.card-body input {
+/* .card-body input {
   margin: 10px auto;
   display: block;
-}
+} */
 
 @media only screen and (max-width: 768px) {
   .overview h1, .overview p {

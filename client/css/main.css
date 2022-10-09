@@ -62,3 +62,12 @@ footer > p {
   justify-content: space-between;
   align-items: center;
 }
+
+.alert > h2 {
+  margin: 0;
+  font-size: 1em;
+}
+
+.alert > svg {
+  width: 1em;
+}
