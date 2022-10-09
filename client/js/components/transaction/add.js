@@ -20,30 +20,10 @@ function renderTransactionAdd() {
           <label for="descriptionInput">Description</label>
         </div>
 
-        <!-- <fieldset>
-          <label for="">Name: </label>
-          <input type="text" name="name" placeholder="Transaction name">
-        </fieldset> -->
-        
-        <!-- <fieldset>
-          <label for="">Amount: </label>
-          <input type="number" name="amount" placeholder="0">
-        </fieldset> -->
-
-        <!-- <fieldset>
-          <label for="">Description: </label>
-          <input type="text" name="description" placeholder="Transaction Description">
-        </fieldset> -->
-
         <div class="form-floating mb-3">
           <input type="date" class="form-control" id="dateInput" placeholder="10/10/2022" name="date">
           <label for="dateInput">Date</label>
         </div>
-
-        <!-- <fieldset>
-          <label for="">Date paid: </label>
-          <input type="date" name="date" placeholder="${state.currentDate.toISOString().slice(0, 10)}">
-        </fieldset> -->
 
         <button class="btn btn-primary">Add Transaction</button>
       </form>
