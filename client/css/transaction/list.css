@@ -92,31 +92,38 @@
 
 /* Transaction Item colours */
 
-.item-style-red, .item-style-blue, .item-style-brown, .item-style-orange {
+.item-style-brown, .item-style-dark-green {
   color: #EEEEEE;
 }
 
-.item-style-red {
-  background-color: #F8FFE5;
+.item-style-red, .item-style-orange, .item-style-blue, .item-style-yellow, .item-style-turquoise {
   color: #333;
 }
 
+.item-style-red {
+  background-color: #e86969;
+}
+
 .item-style-blue {
+  background-color: #1B9AAA;
+}
+
+.item-style-turquoise {
   background-color: #06D6A0;
-  color: #fff;
+}
+
+.item-style-dark-green {
+  background-color: darkgreen;
 }
 
 .item-style-brown {
-  background-color: #1B9AAA;
-  color: #fff;
+  background-color: #6f5123;
 }
 
 .item-style-orange {
-  background-color: #EF476F;
-  color: #fff;
+  background-color: #ef8747;
 }
 
 .item-style-yellow {
   background-color: #FFC43D;
-  color: #333;
 }
