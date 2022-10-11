@@ -1,3 +1,10 @@
+const metaTagsURL = document.getElementsByClassName('meta-og-url').content
+metaTagsURL.map((url) => {
+  if (!url.includes(document.URL)) {
+    urlDOM = document.URL + urlDOM
+  }
+})
+
 const state = {
   userTransactions: [],
   loggedInUserEmail: null,
