@@ -1,9 +1,9 @@
-const metaTagsURL = document.getElementsByClassName('meta-og-url').content
-metaTagsURL.map((url) => {
-  if (!url.includes(document.URL)) {
-    urlDOM = document.URL + urlDOM
-  }
-})
+let metaTagsURL5 = document.getElementsByClassName('add-url-meta-tags')
+for (let tag = 0; tag < metaTagsURL5.length; tag++) {
+  if (!metaTagsURL5[tag].content.includes(document.URL)) {
+    metaTagsURL5[tag].content = document.URL + metaTagsURL5[tag].content
+  }  
+}
 
 const state = {
   userTransactions: [],
